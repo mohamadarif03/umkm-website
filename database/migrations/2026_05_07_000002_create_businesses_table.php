@@ -11,8 +11,8 @@ return new class extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('owner_id')
-                  ->constrained('owners')
+            $table->foreignId('user_id')
+                  ->constrained('users')
                   ->cascadeOnDelete();
             $table->string('name', 200);                            // "Kedai Es Teh Manis"
             $table->string('category', 100)->default('F&B');        // bisa dikembangkan ke ENUM
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->timestamps();
 
-            $table->index('owner_id', 'idx_business_owner');
+            $table->index('user_id', 'idx_business_user');
         });
     }
 

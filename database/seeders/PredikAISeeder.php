@@ -14,20 +14,20 @@ class PredikAISeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Owner
-        $ownerId = DB::table('owners')->insertGetId([
-            'name'          => 'Budi Santoso',
-            'phone'         => '08123456789',
-            'email'         => 'budi@email.com',
-            'password_hash' => Hash::make('password'),
-            'is_active'     => true,
-            'created_at'    => now(),
-            'updated_at'    => now(),
+        // 1. User (pemilik UMKM)
+        $userId = DB::table('users')->insertGetId([
+            'name'              => 'Budi Santoso',
+            'phone'             => '08123456789',
+            'email'             => 'budi@email.com',
+            'password'          => Hash::make('password'),
+            'is_active'         => true,
+            'created_at'        => now(),
+            'updated_at'        => now(),
         ]);
 
         // 2. Businesses
         $business1Id = DB::table('businesses')->insertGetId([
-            'owner_id'  => $ownerId,
+            'user_id'   => $userId,
             'name'      => 'Kedai Es Teh Manis',
             'category'  => 'F&B',
             'city'      => 'Malang',
@@ -40,7 +40,7 @@ class PredikAISeeder extends Seeder
         ]);
 
         $business2Id = DB::table('businesses')->insertGetId([
-            'owner_id'  => $ownerId,
+            'user_id'   => $userId,
             'name'      => 'Es Teh Manis Cabang Batu',
             'category'  => 'F&B',
             'city'      => 'Batu',

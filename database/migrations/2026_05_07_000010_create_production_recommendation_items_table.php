@@ -18,7 +18,7 @@ return new class extends Migration
                   ->constrained('menu_items')
                   ->restrictOnDelete();
             $table->decimal('qty_recommended', 10, 2)->default(0);  // saran AI
-            $table->decimal('qty_overridden', 10, 2)->nullable();   // jumlah yang owner putuskan (jika beda)
+            $table->decimal('qty_overridden', 10, 2)->nullable();   // jumlah yang user putuskan (jika beda)
             $table->string('reasoning', 300)->nullable();           // "Cuaca hujan, kurangi es teh"
 
             $table->index('recommendation_id', 'idx_rec_item');

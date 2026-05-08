@@ -16,8 +16,8 @@ return new class extends Migration
                   ->cascadeOnDelete();
             $table->date('recommend_date');
             $table->text('summary_note')->nullable();               // ringkasan alasan rekomendasi hari ini
-            $table->boolean('is_overridden')->default(false);       // apakah owner mengubah rekomendasi
-            $table->text('override_reason')->nullable();            // alasan owner jika override
+            $table->boolean('is_overridden')->default(false);       // apakah user mengubah rekomendasi
+            $table->text('override_reason')->nullable();            // alasan user jika override
             $table->timestamp('generated_at')->useCurrent();
 
             $table->unique(['business_id', 'recommend_date'], 'uq_prod_rec');
