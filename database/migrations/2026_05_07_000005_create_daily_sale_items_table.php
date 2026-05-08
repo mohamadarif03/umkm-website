@@ -6,10 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: daily_sale_items — Detail penjualan per menu per hari
-     */
+   
     public function up(): void
     {
         Schema::create('daily_sale_items', function (Blueprint $table) {

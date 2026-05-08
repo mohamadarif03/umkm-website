@@ -6,10 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: alerts — Riwayat semua alert yang dikirim ke owner
-     */
     public function up(): void
     {
         Schema::create('alerts', function (Blueprint $table) {
@@ -18,11 +14,11 @@ return new class extends Migration
                   ->constrained('businesses')
                   ->cascadeOnDelete();
             $table->enum('alert_type', [
-                'weather_warning',      // cuaca ekstrem
-                'sales_drop',           // prediksi turun signifikan
-                'no_input_reminder',    // lupa input data
-                'accuracy_drop',        // akurasi model turun
-                'monthly_report',       // laporan bulanan siap
+                'weather_warning',     
+                'sales_drop',       
+                'no_input_reminder',  
+                'accuracy_drop',        
+                'monthly_report',       
             ]);
             $table->string('title', 200);
             $table->text('message');

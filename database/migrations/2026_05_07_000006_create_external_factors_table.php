@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: external_factors — Data faktor eksternal harian (cuaca, libur, event)
-     * Diisi otomatis oleh sistem dari BMKG, kalender, dll
-     */
+   
     public function up(): void
     {
         Schema::create('external_factors', function (Blueprint $table) {

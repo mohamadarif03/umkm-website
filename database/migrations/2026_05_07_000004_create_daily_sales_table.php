@@ -6,10 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: daily_sales — Header input penjualan harian (satu record per hari per bisnis)
-     */
+    
     public function up(): void
     {
         Schema::create('daily_sales', function (Blueprint $table) {

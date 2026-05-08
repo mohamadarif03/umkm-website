@@ -6,10 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: prediction_factors — Faktor apa saja yang mempengaruhi tiap prediksi (untuk transparansi)
-     */
+   
     public function up(): void
     {
         Schema::create('prediction_factors', function (Blueprint $table) {

@@ -6,10 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: production_recommendations — Rekomendasi produksi harian dari AI (header)
-     */
+   
     public function up(): void
     {
         Schema::create('production_recommendations', function (Blueprint $table) {

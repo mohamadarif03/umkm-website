@@ -7,10 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: menu_items — Produk yang dijual di tiap bisnis
-     */
+   
     public function up(): void
     {
         Schema::create('menu_items', function (Blueprint $table) {

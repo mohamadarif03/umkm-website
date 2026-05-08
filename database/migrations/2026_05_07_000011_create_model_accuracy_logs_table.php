@@ -6,10 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: model_accuracy_logs — Log akurasi model per bulan per bisnis (untuk tracker akurasi)
-     */
+   
     public function up(): void
     {
         Schema::create('model_accuracy_logs', function (Blueprint $table) {

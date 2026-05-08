@@ -6,10 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: businesses — Setiap bisnis milik satu owner (multi-bisnis per owner)
-     */
+   
     public function up(): void
     {
         Schema::create('businesses', function (Blueprint $table) {

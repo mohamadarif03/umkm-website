@@ -6,10 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: production_recommendation_items — Detail rekomendasi per menu
-     */
+   
     public function up(): void
     {
         Schema::create('production_recommendation_items', function (Blueprint $table) {

@@ -6,10 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     * Tabel: predictions — Output prediksi AI per bisnis per periode
-     */
+   
     public function up(): void
     {
         Schema::create('predictions', function (Blueprint $table) {
