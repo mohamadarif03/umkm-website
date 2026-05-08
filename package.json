@@ -4,13 +4,15 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "@fontsource-variable/figtree": "^5.2.10",
         "@fontsource-variable/nunito-sans": "^5.2.7",
         "@inertiajs/react": "^3.1.0",
         "@tabler/icons-react": "^3.43.0",
+        "axios": "^1.16.0",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "radix-ui": "^1.4.3",
@@ -22,10 +24,13 @@
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
+        "@types/react": "^19.2.14",
+        "@types/react-dom": "^19.2.3",
         "@vitejs/plugin-react": "^6.0.1",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^3.0.0",
         "tailwindcss": "^4.0.0",
+        "typescript": "^6.0.3",
         "vite": "^8.0.0"
     }
 }
