@@ -37,4 +37,20 @@ class Business extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Menu yang dimiliki bisnis ini.
+     */
+    public function menuItems()
+    {
+        return $this->hasMany(MenuItem::class);
+    }
+
+    /**
+     * Penjualan harian bisnis ini.
+     */
+    public function dailySales()
+    {
+        return $this->hasMany(DailySale::class);
+    }
 }
