@@ -3,6 +3,7 @@ import {
     IconChevronLeft,
     IconChevronRight,
     IconLayoutDashboard,
+    IconLogout,
     IconBulb ,
     IconMenu2,
     IconPackage,
@@ -21,6 +22,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "../components/ui/sheet";
+import { logout } from "../lib/auth-api";
 import { cn } from "../lib/utils";
 import AppLayout from "./AppLayout";
 
@@ -37,14 +39,14 @@ type NavItem = {
 };
 
 const mainNav: NavItem[] = [
-    { label: "Dasbor Utama", href: "/", icon: <IconLayoutDashboard size={18} /> },
-    { label: "Produk", href: "/produk", icon: <IconPackage size={18} /> },
-    { label: "Insight", href: "/insight", icon: <IconBulb size={18} /> },
+    { label: "Dasbor Utama", href: "/dashboard", icon: <IconLayoutDashboard size={18} /> },
+    { label: "Produk", href: "/dashboard/produk", icon: <IconPackage size={18} /> },
+    { label: "Insight", href: "/dashboard/insight", icon: <IconBulb size={18} /> },
 ];
 
 const secondaryNav: NavItem[] = [
-    { label: "Pengaturan Bisnis", href: "/pengaturan-bisnis", icon: <IconSettings size={18} /> },
-    { label: "Profile", href: "/profile", icon: <IconUser size={18} /> },
+    { label: "Pengaturan Bisnis", href: "/dashboard/pengaturan-bisnis", icon: <IconSettings size={18} /> },
+    { label: "Profile", href: "/dashboard/profile", icon: <IconUser size={18} /> },
 ];
 
 function NavList({
@@ -86,6 +88,21 @@ function NavList({
 export default function DashboardLayout({ title, description, children }: DashboardLayoutProps) {
     const { url } = usePage();
     const [desktopCollapsed, setDesktopCollapsed] = useState(false);
+    const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+    async function handleLogout() {
+        if (isLoggingOut) {
+            return;
+        }
+
+        setIsLoggingOut(true);
+
+        try {
+            await logout();
+        } finally {
+            window.location.href = "/login";
+        }
+    }
 
     return (
         <AppLayout>
@@ -121,6 +138,17 @@ export default function DashboardLayout({ title, description, children }: Dashbo
                             Lainnya
                         </p>
                         <NavList items={secondaryNav} collapsed={desktopCollapsed} currentPath={url} />
+                        <Button
+                            variant="ghost"
+                            className={cn("mt-2 w-full justify-start gap-3 text-muted-foreground hover:text-primary", desktopCollapsed && "justify-center")}
+                            onClick={() => void handleLogout()}
+                            disabled={isLoggingOut}
+                        >
+                            <IconLogout size={18} />
+                            <span className={cn(desktopCollapsed && "hidden")}>
+                                {isLoggingOut ? "Keluar..." : "Logout"}
+                            </span>
+                        </Button>
                     </div>
                 </aside>
 
@@ -163,6 +191,15 @@ export default function DashboardLayout({ title, description, children }: Dashbo
                                                         closeButton?.click();
                                                     }}
                                                 />
+                                                <Button
+                                                    variant="ghost"
+                                                    className="w-full justify-start gap-3 text-muted-foreground hover:text-primary"
+                                                    onClick={() => void handleLogout()}
+                                                    disabled={isLoggingOut}
+                                                >
+                                                    <IconLogout size={18} />
+                                                    {isLoggingOut ? "Keluar..." : "Logout"}
+                                                </Button>
                                             </div>
                                         </div>
                                         <SheetClose className="hidden" />
