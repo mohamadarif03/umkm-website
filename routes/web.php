@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    return Inertia::render('LandingPage');
 })->name('landing');
 
 Route::middleware('frontend.guest')->group(function () {
