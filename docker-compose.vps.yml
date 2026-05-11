@@ -51,8 +51,8 @@ services:
       MARIADB_USER: ${DB_USERNAME:-umkm}
       MARIADB_PASSWORD: ${DB_PASSWORD:-umkm_password}
       MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_password_change_me}
-    ports:
-      - "${DB_PORT_EXPOSE:-3307}:3306"
+    # ports:
+    #   - "${DB_PORT_EXPOSE:-3307}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
