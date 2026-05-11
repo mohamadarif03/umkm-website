@@ -56,3 +56,40 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Docker Hub Deployment
+
+This project includes Docker files for local build and VPS pull-based deployment.
+
+### 1) Build and push images to Docker Hub
+
+```bash
+docker compose build app web
+docker compose push app web
+```
+
+By default, images are tagged as:
+
+- `afifalhauzan123/umkm-website-app:latest`
+- `afifalhauzan123/umkm-website-web:latest`
+
+You can override namespace/tag:
+
+```bash
+DOCKERHUB_NAMESPACE=afifalhauzan123 IMAGE_TAG=v1 docker compose build app web
+DOCKERHUB_NAMESPACE=afifalhauzan123 IMAGE_TAG=v1 docker compose push app web
+```
+
+### 2) Run on VPS using pulled images only
+
+Use the VPS compose file (no local build required):
+
+```bash
+docker compose -f docker-compose.vps.yml up -d
+```
+
+Or with custom tag:
+
+```bash
+DOCKERHUB_NAMESPACE=afifalhauzan123 IMAGE_TAG=v1 docker compose -f docker-compose.vps.yml up -d
+```
