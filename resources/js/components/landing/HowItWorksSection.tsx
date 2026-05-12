@@ -1,20 +1,24 @@
+import { IconBrain, IconBulb, IconReceipt2 } from "@tabler/icons-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 const steps = [
     {
         step: "1",
+        icon: IconReceipt2,
         title: "Input data penjualan",
         description:
             "Catat transaksi harian Anda dengan antarmuka yang bersih dan mudah digunakan di akhir hari kerja.",
     },
     {
         step: "2",
+        icon: IconBrain,
         title: "Sistem menganalisis pola bisnis",
         description:
             "Data diproses di latar belakang untuk mengidentifikasi tren pesanan dan kebutuhan bahan baku historis.",
     },
     {
         step: "3",
+        icon: IconBulb,
         title: "AI memberi rekomendasi operasional",
         description:
             "Terima saran terstruktur untuk jumlah porsi yang perlu disiapkan dan estimasi belanja esok hari.",
@@ -34,22 +38,26 @@ export default function HowItWorksSection() {
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-3">
-                    {steps.map((item) => (
-                        <Card key={item.step} className="border-border/60 bg-card/85 backdrop-blur">
-                            <CardHeader className="items-center text-center">
-                                <div className="mb-1 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-lg font-bold text-primary">
-                                    {item.step}
-                                </div>
-                                <CardTitle className="font-heading text-xl">{item.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent className="text-center text-sm text-muted-foreground">
-                                {item.description}
-                            </CardContent>
-                        </Card>
-                    ))}
+                    {steps.map((item) => {
+                        const Icon = item.icon;
+
+                        return (
+                            <Card key={item.step} className="border-border/60 bg-card/90 backdrop-blur">
+                                <CardHeader className="items-start text-left">
+                                    <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                                        <Icon size={22} stroke={2.1} />
+                                    </div>
+                                    <p className="text-xs text-muted-foreground">Step {item.step}</p>
+                                    <CardTitle className="font-heading text-xl">{item.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent className="text-sm text-muted-foreground">
+                                    {item.description}
+                                </CardContent>
+                            </Card>
+                        );
+                    })}
                 </div>
             </div>
         </section>
     );
 }
-

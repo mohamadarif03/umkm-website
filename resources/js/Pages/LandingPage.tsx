@@ -1,4 +1,5 @@
 import { Head } from "@inertiajs/react";
+import CapabilityStripSection from "../components/landing/CapabilityStripSection";
 import ClosingCtaSection from "../components/landing/ClosingCtaSection";
 import FeatureHighlightsSection from "../components/landing/FeatureHighlightsSection";
 import HeroSection from "../components/landing/HeroSection";
@@ -15,13 +16,13 @@ export default function LandingPage() {
             <TopNavbar />
             <main>
                 <HeroSection />
+                <CapabilityStripSection />
                 <HowItWorksSection />
                 <FeatureHighlightsSection />
-                <ProductPreviewSection />
+                {/* <ProductPreviewSection /> */}
                 <ClosingCtaSection />
             </main>
             <LandingFooter />
         </AppLayout>
     );
 }
-
