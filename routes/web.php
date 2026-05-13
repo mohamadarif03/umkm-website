@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\AuthController as WebAuthController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -7,17 +8,17 @@ Route::get('/', function () {
     return Inertia::render('LandingPage');
 })->name('landing');
 
-Route::middleware('frontend.guest')->group(function () {
-    Route::get('/register', function () {
-        return Inertia::render('Auth/Register');
-    })->name('register');
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [WebAuthController::class, 'showRegister'])->name('register');
+    Route::post('/register', [WebAuthController::class, 'register']);
 
-    Route::get('/login', function () {
-        return Inertia::render('Auth/Login');
-    })->name('login');
+    Route::get('/login', [WebAuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [WebAuthController::class, 'login']);
 });
 
-Route::prefix('/dashboard')->middleware('frontend.auth')->group(function () {
+Route::post('/logout', [WebAuthController::class, 'logout'])->middleware('auth')->name('logout');
+
+Route::prefix('/dashboard')->middleware('auth')->group(function () {
     Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');

@@ -1,4 +1,3 @@
-import { Link } from "@inertiajs/react";
 import { IconMenu2 } from "@tabler/icons-react";
 import { Button } from "../ui/button";
 import {
@@ -38,9 +37,12 @@ export default function TopNavbar() {
                 </nav>
 
                 <div className="hidden md:block">
-                    <Button asChild variant="secondary" className="bg-white text-primary hover:bg-white/90">
-                        <Link href="/login">Masuk ke Sistem</Link>
-                    </Button>
+                    <a
+                        href="/login"
+                        className="inline-flex h-9 items-center justify-center rounded-md bg-white px-4 text-sm font-medium text-primary transition hover:bg-white/90"
+                    >
+                        Masuk/Daftar
+                    </a>
                 </div>
 
                 <Sheet>
@@ -69,9 +71,12 @@ export default function TopNavbar() {
                                     {link.label}
                                 </a>
                             ))}
-                            <Button asChild className="mt-4 w-full">
-                                <Link href="/login">Masuk ke Sistem</Link>
-                            </Button>
+                            <a
+                                href="/login"
+                                className="mt-4 inline-flex h-9 w-full items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
+                            >
+                                Masuk/Daftar
+                            </a>
                         </div>
                         <SheetClose className="hidden" />
                     </SheetContent>

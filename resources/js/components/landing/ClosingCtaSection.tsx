@@ -12,7 +12,7 @@ export default function ClosingCtaSection() {
                     Bergabunglah dengan pengusaha F&amp;B yang sudah mengoptimalkan produksi dan mengurangi limbah.
                 </p>
                 <Button asChild size="lg" className="mt-8 bg-white text-primary hover:bg-white/90">
-                    <Link href="/login">Masuk ke Sistem</Link>
+                    <Link href="/login">Masuk/Daftar</Link>
                 </Button>
             </div>
         </section>

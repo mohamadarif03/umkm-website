@@ -3,8 +3,6 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use App\Http\Middleware\EnsureFrontendAuthenticated;
-use App\Http\Middleware\RedirectIfFrontendAuthenticated;
 use App\Http\Middleware\EncryptCookies;
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncryptCookies;
 
@@ -18,11 +16,6 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->web(replace: [
             BaseEncryptCookies::class => EncryptCookies::class,
-        ]);
-
-        $middleware->alias([
-            'frontend.auth' => EnsureFrontendAuthenticated::class,
-            'frontend.guest' => RedirectIfFrontendAuthenticated::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
