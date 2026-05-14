@@ -12,6 +12,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "../components/ui/sheet";
+import type { InertiaPageProps } from "../types/page-props";
 import { cn } from "../lib/utils";
 import AppLayout from "./AppLayout";
 
@@ -71,8 +72,9 @@ function NavbarLinks({
 }
 
 export default function DashboardLayout({ title, description, children }: DashboardLayoutProps) {
-    const { url } = usePage();
+    const { url, props } = usePage<InertiaPageProps>();
     const [mobileOpen, setMobileOpen] = useState(false);
+    const roleLabel = String(props.auth?.user?.role ?? "unknown").toUpperCase();
 
     return (
         <AppLayout>
@@ -113,7 +115,10 @@ export default function DashboardLayout({ title, description, children }: Dashbo
 
                 <main className="flex-1 px-4 py-5 sm:px-6 lg:px-8">
                     <div className="mb-6">
-                        <h1 className="font-heading text-xl font-semibold tracking-tight">{title}</h1>
+                        <div className="flex flex-wrap items-center gap-2">
+                            <h1 className="font-heading text-xl font-semibold tracking-tight">{title}</h1>
+                            <Badge variant="outline">Role: {roleLabel}</Badge>
+                        </div>
                         <p className="text-sm text-muted-foreground">{description}</p>
                     </div>
                     {children}
