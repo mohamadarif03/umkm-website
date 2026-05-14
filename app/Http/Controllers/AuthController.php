@@ -36,7 +36,13 @@ class AuthController extends Controller
                     properties: [
                         new OA\Property(property: "status", type: "string", example: "success"),
                         new OA\Property(property: "message", type: "string", example: "User successfully registered"),
-                        new OA\Property(property: "data", type: "object")
+                        new OA\Property(property: "data", type: "object", properties: [
+                            new OA\Property(property: "id", type: "integer"),
+                            new OA\Property(property: "name", type: "string"),
+                            new OA\Property(property: "email", type: "string", format: "email"),
+                            new OA\Property(property: "role", type: "string", example: "owner"),
+                            new OA\Property(property: "business_id", type: "integer", nullable: true)
+                        ])
                     ]
                 )
             ),
@@ -88,7 +94,14 @@ class AuthController extends Controller
                         new OA\Property(property: "message", type: "string", example: "Login successful"),
                         new OA\Property(property: "data", type: "object", properties: [
                             new OA\Property(property: "access_token", type: "string"),
-                            new OA\Property(property: "token_type", type: "string", example: "Bearer")
+                            new OA\Property(property: "token_type", type: "string", example: "Bearer"),
+                            new OA\Property(property: "user", type: "object", properties: [
+                                new OA\Property(property: "id", type: "integer"),
+                                new OA\Property(property: "name", type: "string"),
+                                new OA\Property(property: "email", type: "string", format: "email"),
+                                new OA\Property(property: "role", type: "string", example: "owner"),
+                                new OA\Property(property: "business_id", type: "integer", nullable: true)
+                            ])
                         ])
                     ]
                 )
@@ -160,7 +173,14 @@ class AuthController extends Controller
                         new OA\Property(property: "message", type: "string", example: "Token refreshed successfully"),
                         new OA\Property(property: "data", type: "object", properties: [
                             new OA\Property(property: "access_token", type: "string"),
-                            new OA\Property(property: "token_type", type: "string", example: "Bearer")
+                            new OA\Property(property: "token_type", type: "string", example: "Bearer"),
+                            new OA\Property(property: "user", type: "object", properties: [
+                                new OA\Property(property: "id", type: "integer"),
+                                new OA\Property(property: "name", type: "string"),
+                                new OA\Property(property: "email", type: "string", format: "email"),
+                                new OA\Property(property: "role", type: "string", example: "owner"),
+                                new OA\Property(property: "business_id", type: "integer", nullable: true)
+                            ])
                         ])
                     ]
                 )
@@ -192,7 +212,13 @@ class AuthController extends Controller
                 content: new OA\JsonContent(
                     properties: [
                         new OA\Property(property: "status", type: "string", example: "success"),
-                        new OA\Property(property: "data", type: "object")
+                        new OA\Property(property: "data", type: "object", properties: [
+                            new OA\Property(property: "id", type: "integer"),
+                            new OA\Property(property: "name", type: "string"),
+                            new OA\Property(property: "email", type: "string", format: "email"),
+                            new OA\Property(property: "role", type: "string", example: "owner"),
+                            new OA\Property(property: "business_id", type: "integer", nullable: true)
+                        ])
                     ]
                 )
             )

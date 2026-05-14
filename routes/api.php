@@ -22,4 +22,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Daily Sales
     Route::apiResource('businesses.daily-sales', App\Http\Controllers\DailySaleController::class)->except(['destroy']);
     Route::post('businesses/{business}/daily-sales/import', [App\Http\Controllers\DailySaleController::class, 'import']);
+
+    // Kasir
+    Route::apiResource('kasir', App\Http\Controllers\KasirController::class);
 });

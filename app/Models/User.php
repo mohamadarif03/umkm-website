@@ -11,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-#[Fillable(['name', 'phone', 'email', 'password', 'is_active'])]
+#[Fillable(['name', 'phone', 'email', 'password', 'is_active', 'role', 'business_id'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -38,5 +38,13 @@ class User extends Authenticatable
     public function businesses(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(\App\Models\Business::class);
+    }
+
+    /**
+     * Bisnis tempat kasir bekerja.
+     */
+    public function business(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(\App\Models\Business::class, 'business_id');
     }
 }
