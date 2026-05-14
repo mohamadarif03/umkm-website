@@ -25,4 +25,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Kasir
     Route::apiResource('kasir', App\Http\Controllers\KasirController::class);
+
+    // Predik AI
+    Route::get('businesses/{business}/predik-ai/external-factors', [App\Http\Controllers\PredikAiController::class, 'externalFactors']);
 });
