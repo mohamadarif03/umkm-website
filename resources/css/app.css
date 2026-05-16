@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/figtree";
 @import "@fontsource-variable/nunito-sans";
+@import "@fontsource-variable/plus-jakarta-sans";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -143,4 +144,10 @@
   html {
     @apply font-sans;
     }
+}
+
+@layer utilities {
+  .font-plus-jakarta {
+    font-family: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", "Figtree Variable", sans-serif;
+  }
 }

@@ -10,6 +10,7 @@
     "dependencies": {
         "@fontsource-variable/figtree": "^5.2.10",
         "@fontsource-variable/nunito-sans": "^5.2.7",
+        "@fontsource-variable/plus-jakarta-sans": "^5.2.8",
         "@inertiajs/react": "^3.1.0",
         "@tabler/icons-react": "^3.43.0",
         "axios": "^1.16.0",
