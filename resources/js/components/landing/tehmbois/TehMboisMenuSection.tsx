@@ -92,7 +92,7 @@ export default function TehMboisMenuSection() {
         <section id="menu" className="bg-white py-20">
             <div className="mx-auto w-full max-w-[1280px] px-4 md:px-8">
                 <div className="mb-16 text-center">
-                    <h2 className="font-cherry-freeland mb-4 text-5xl font-bold text-[#181c1b]">Menu Mbois Andalan</h2>
+                    <h2 className="font-cherry-freeland mb-4 text-5xl font-bold text-slate-800">Menu Mbois Andalan</h2>
                     <p className="mx-auto max-w-2xl text-[#3f4945]">
                         Pilih varian favoritmu, nikmati kesegarannya tanpa bikin dompet nangis.
                     </p>

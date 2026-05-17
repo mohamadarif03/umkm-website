@@ -1,12 +1,13 @@
 import { IconChartBar } from "@tabler/icons-react";
+import { IconMug } from '@tabler/icons-react';
 
 export default function TehMboisClosingCtaSection() {
     return (
         <section className="mx-auto max-w-[1280px] bg-[#f7faf7] px-4 py-24 md:px-8">
             <div className="relative overflow-hidden rounded-[2.5rem] bg-[#F1EFE8] p-12 text-center md:p-20">
                 <div className="absolute left-0 top-0 h-2 w-full bg-gradient-to-r from-[#096956] via-[#ab6153] to-[#4FAE83]" />
-                <div className="pointer-events-none absolute -bottom-20 -right-20 opacity-10">
-                    <span className="text-[260px]">??</span>
+                <div className="pointer-events-none absolute -bottom-10 -right-5 opacity-10">
+                    <IconMug stroke={2} size={250} />
                 </div>
                 <div className="relative z-10 mx-auto max-w-5xl">
                     <h2 className="font-cherry-freeland mb-6 text-6xl font-black leading-tight text-slate-800">Siap Ngerasain Kesegaran Mbois?</h2>

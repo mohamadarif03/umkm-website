@@ -1,19 +1,19 @@
-import { IconMenu2, IconShoppingCart } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { TEH_MBOIS_IMAGES } from "./constants";
 import { Button } from "../../ui/button";
-import { Link, usePage } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 
 const navLinks = [
-    { href: "#", label: "Home", active: true },
+    // { href: "#tehmbois-hero", label: "Home" },
     { href: "#menu", label: "Menu" },
     { href: "#insight", label: "Insight" },
-    { href: "#tentang", label: "Tentang Kami" },
+    { href: "#outlet", label: "Tentang Kami" },
     { href: "#kontak", label: "Kontak" },
 ];
 
 export default function TehMboisTopNav() {
     const [showFullNav, setShowFullNav] = useState(false);
+    const [activeHash, setActiveHash] = useState("#tehmbois-hero");
 
     useEffect(() => {
         const updateNavMode = () => {
@@ -39,6 +39,16 @@ export default function TehMboisTopNav() {
         };
     }, []);
 
+    useEffect(() => {
+        const syncActive = () => {
+            setActiveHash(window.location.hash || "#tehmbois-hero");
+        };
+
+        syncActive();
+        window.addEventListener("hashchange", syncActive);
+        return () => window.removeEventListener("hashchange", syncActive);
+    }, []);
+
     return (
         <>
             <nav
@@ -49,7 +59,7 @@ export default function TehMboisTopNav() {
             >
                 <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between px-4 py-4 md:px-8">
                     <div className="flex items-center gap-4">
-                        <a href="#" className="inline-flex items-center">
+                        <a href="#tehmbois-hero" className="inline-flex items-center" onClick={() => setActiveHash("#tehmbois-hero")}>
                             <img
                                 src={TEH_MBOIS_IMAGES.logo}
                                 alt="TehMbois"
@@ -74,7 +84,7 @@ export default function TehMboisTopNav() {
             >
                 <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between px-4 py-4 md:px-8">
                     <div className="flex items-center gap-4">
-                        <a href="#" className="inline-flex items-center">
+                        <a href="#tehmbois-hero" className="inline-flex items-center" onClick={() => setActiveHash("#tehmbois-hero")}>
                             <img
                                 src={TEH_MBOIS_IMAGES.logo}
                                 alt="TehMbois"
@@ -88,34 +98,34 @@ export default function TehMboisTopNav() {
                             <a
                                 key={item.label}
                                 href={item.href}
+                                onClick={() => setActiveHash(item.href)}
                                 className={[
-                                    "rounded-full px-4 py-2 text-sm font-semibold transition-all",
-                                    item.active
-                                        ? "border-b-2 border-[#096956] text-[#096956]"
+                                    "relative rounded-full px-4 py-2 text-sm font-semibold transition-all",
+                                    activeHash === item.href
+                                        ? "text-[#096956]"
                                         : "text-[#3f4945] hover:bg-[#096956]/5 hover:text-[#096956]",
                                 ].join(" ")}
                             >
                                 {item.label}
+                                {activeHash === item.href ? (
+                                    <span className="absolute bottom-1 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-[#096956]" />
+                                ) : null}
                             </a>
                         ))}
                     </div>
 
                     <div className="flex items-center gap-3">
-                        <button className="hidden rounded-full bg-[#096956] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#096956]/90 md:inline-flex">
-                            Dashboard Mitra
-                        </button>
-                        <button
-                            aria-label="shopping_cart"
-                            className="rounded-full p-2 text-[#181c1b] transition-all hover:bg-[#096956]/5"
-                        >
-                            <IconShoppingCart size={22} stroke={1.9} />
-                        </button>
-                        <button
+                        <Link href="/dashboard">
+                            <Button className="inline-flex rounded-full bg-[#096956] px-5 py-2.5 text-xs font-medium text-white transition-colors hover:bg-[#096956]/90 sm:px-6 sm:text-sm">
+                                Dashboard Mitra
+                            </Button>
+                        </Link>
+                        {/* <button
                             className="rounded-full p-2 text-[#181c1b] transition-all hover:bg-[#096956]/5 md:hidden"
                             aria-label="Open menu"
                         >
                             <IconMenu2 size={22} stroke={1.9} />
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </nav>
