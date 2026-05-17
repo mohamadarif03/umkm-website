@@ -38,7 +38,7 @@ export default function TehMboisHighlightsSection() {
                     <img
                         src={TEH_MBOIS_IMAGES.heroDrink}
                         alt="Teh Tarik"
-                        className="absolute -bottom-8 -right-8 h-60 w-60 rounded-full object-cover transition-transform group-hover:scale-105"
+                        className="absolute -bottom-8 -right-8 h-60 w-60  transition-transform group-hover:scale-105"
                     />
                 </div>
 

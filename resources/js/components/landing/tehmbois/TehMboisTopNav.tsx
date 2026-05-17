@@ -25,7 +25,7 @@ export default function TehMboisTopNav() {
             }
 
             const rect = hero.getBoundingClientRect();
-            const triggerOffset = Math.max(72, Math.round(window.innerHeight * 0.25));
+            const triggerOffset = Math.max(72, Math.round(window.innerHeight * 0.5));
             setShowFullNav(rect.top <= -triggerOffset);
         };
 

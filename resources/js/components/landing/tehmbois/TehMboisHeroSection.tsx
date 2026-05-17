@@ -1,11 +1,67 @@
 import { IconArrowNarrowRight, IconAward, IconLeaf, IconStarFilled } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
 import { TEH_MBOIS_IMAGES } from "./constants";
 
+type IceDecorPlacement = {
+    left: string;
+    top: string;
+    size: number;
+    rotation: number;
+    depth: number;
+    floatDuration: number;
+    floatOffset: number;
+    opacity?: number;
+};
+
+const ICE_GLOW_BLUR_PX = 18;
+
+// Editable ice decoration layout (tweak freely)
+const ICE_DECOR_LAYOUT: IceDecorPlacement[] = [
+    { left: "11%", top: "12%", size: 100, rotation: -18, depth: 0.04, floatDuration: 5.2, floatOffset: 8, opacity: 0.86 },
+    { left: "78%", top: "15%", size: 82, rotation: 14, depth: 0.05, floatDuration: 5.8, floatOffset: 12, opacity: 0.9 },
+    { left: "21%", top: "66%", size: 200, rotation: 24, depth: 0.06, floatDuration: 6.1, floatOffset: 10, opacity: 0.82 },
+    { left: "84%", top: "70%", size: 58, rotation: -12, depth: 0.035, floatDuration: 5.4, floatOffset: 14, opacity: 0.78 },
+];
+
 export default function TehMboisHeroSection() {
+    const [scrollY, setScrollY] = useState(0);
+
+    useEffect(() => {
+        let rafId = 0;
+
+        const onScroll = () => {
+            if (rafId) {
+                return;
+            }
+
+            rafId = window.requestAnimationFrame(() => {
+                setScrollY(window.scrollY);
+                rafId = 0;
+            });
+        };
+
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            if (rafId) {
+                window.cancelAnimationFrame(rafId);
+            }
+        };
+    }, []);
+
+    const teaLeavesOffset = Math.min(scrollY * 0.14 - 20, 200);  //delay scroll
+
+    const teaOffset = Math.min(scrollY * 0.14 - 20, 90);  //delay scroll
+    const ratingOffset = Math.min(scrollY * 0.20, 52);
+    const asliOffset = Math.min(scrollY * 0.11, 68);
+    const bestOffset = Math.min(scrollY * 0.1, 60);
+
     return (
         <section
             id="tehmbois-hero"
-            className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#f7faf7] to-[#f1f4f1] pb-24 pt-14"
+            className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#f7faf7] to-[#f1f4f1] pt-14"
         >
             <div
                 className="pointer-events-none absolute inset-0 opacity-10"
@@ -16,13 +72,13 @@ export default function TehMboisHeroSection() {
             />
 
             <div className="relative z-10 mx-auto w-full max-w-[1280px] px-4 text-center md:px-8">
-                <div className="mx-auto mb-12 flex max-w-6xl flex-col items-center gap-6">
+                <div className="mx-auto flex max-w-6xl flex-col items-center gap-6">
                     <div className="inline-flex items-center gap-4 rounded-full  bg-[#BA7517]/10 px-8 py-3 text-sm font-semibold tracking-[0.08em] text-[#BA7517]">
                         <IconLeaf size={16} stroke={2} />
                         Segarkan Harimu dengan Mbois!
                     </div>
 
-                    <h1 className="font-cherry-freeland text-5xl leading-[1.02] tracking-[0.02em] text-slate-800 md:text-9xl">
+                    <h1 className="font-cherry-freeland text-6xl leading-[1.02] tracking-[0.02em] text-slate-800 md:text-9xl">
                         SEGAR, MBOIS, <br />
                         <span className="relative inline-block text-[#1D9E75]">
                             {/* 1. Wrap the text and give it a higher z-index */}
@@ -39,9 +95,9 @@ export default function TehMboisHeroSection() {
                         </span>
                     </h1>
 
-                    <div className="mt-2 flex w-full max-w-4xl flex-col items-center gap-3 pb-8 md:flex-row md:items-center md:justify-between">
-                        <p className="max-w-3xl text-center text-xl text-[#3f4945] md:text-left">
-                            Es teh khas Malang dari teh pilihan Wonosari, dipadukan rasa lokal yang segar dan ramah di
+                    <div className="mt-2 flex w-full max-w-4xl flex-col items-center gap-3 md:flex-row md:items-center md:justify-between">
+                        <p className="max-w-3xl text-center text-lg md:text-xl md:text-left text-[#3f4945]">
+                            Es teh khas Malang dari teh pilihan <strong>Wonosari</strong>, dipadukan rasa lokal yang segar dan ramah di
                             kantong.
                         </p>
 
@@ -64,49 +120,96 @@ export default function TehMboisHeroSection() {
                     </div>
                 </div>
 
-                <div className="relative mt-8 flex h-[400px] w-full items-end justify-center md:h-[600px]">
-                    <div className="absolute inset-0 rounded-full bg-[#1D9E75]/10 blur-3xl animate-pulse" />
+                <div className="relative flex h-[400px] w-full items-end justify-center md:h-[600px]">
+                    <div className="absolute inset-0 top-90 w-full rounded-full bg-[#F4E2D3]/100 blur-3xl animate-pulse" />
+                    {TEH_MBOIS_IMAGES.iceDecor.map((src, index) => {
+                        const config = ICE_DECOR_LAYOUT[index];
+                        if (!config) {
+                            return null;
+                        }
 
-                    <div className="absolute left-10 top-1/4 z-30 hidden items-center gap-3 rounded-2xl border border-[#bec9c4]/30 bg-white/90 p-4 shadow-xl backdrop-blur-sm md:flex animate-bounce" style={{ animationDuration: "4s" }}>
-                        <div className="rounded-full bg-[#BA7517]/20 p-2 text-[#BA7517]">
+                        return (
+                        <img
+                            key={`${src}-${index}`}
+                            src={src}
+                            alt=""
+                            aria-hidden="true"
+                            className="pointer-events-none absolute z-20 hidden select-none object-contain md:block"
+                            style={{
+                                left: config.left,
+                                top: config.top,
+                                width: `${config.size}px`,
+                                height: `${config.size}px`,
+                                opacity: config.opacity ?? 0.85,
+                                animation: `float-${index} ${config.floatDuration}s ease-in-out infinite alternate`,
+                                transform: `translate3d(0, ${scrollY * config.depth}px, 0) rotate(${config.rotation}deg)`,
+                                filter: `drop-shadow(0 0 30px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 ${ICE_GLOW_BLUR_PX}px rgba(255,255,255,0.6))`,
+                            }}
+                        />
+                        );
+                    })}
+
+                    <div
+                        className="absolute left-10 top-1/4 z-30 hidden items-center gap-3 rounded-2xl border border-[#BA7517]/35 bg-[#FCE6CC] p-4 shadow-xl backdrop-blur-sm md:flex animate-bounce will-change-transform"
+                        style={{
+                            animationDuration: "4s",
+                            transform: `translate3d(0, ${ratingOffset}px, 0)`,
+                        }}
+                    >
+                        <div className="rounded-full bg-[#BA7517]/25 p-2 text-[#8A5A12]">
                             <IconStarFilled size={18} />
                         </div>
                         <div className="text-left">
-                            <p className="text-xs text-[#3f4945]">Rating</p>
-                            <p className="text-2xl font-bold leading-none text-[#181c1b]">4.9</p>
+                            <p className="text-xs text-[#8A5A12]">Rating</p>
+                            <p className="text-2xl font-bold leading-none text-[#8A5A12]">4.9</p>
                         </div>
                     </div>
 
-                    <div className="absolute right-10 top-1/3 z-30 hidden items-center gap-3 rounded-2xl border border-[#bec9c4]/30 bg-white/90 p-4 shadow-xl backdrop-blur-sm md:flex animate-bounce" style={{ animationDuration: "3.5s", animationDelay: "1s" }}>
-                        <div className="rounded-full bg-[#1D9E75]/20 p-2 text-[#1D9E75]">
+                    <div
+                        className="absolute right-10 top-1/3 z-30 hidden items-center gap-3 rounded-2xl border border-[#1D9E75]/35 bg-[#1D9E75] p-4 shadow-xl backdrop-blur-sm md:flex animate-bounce will-change-transform"
+                        style={{
+                            animationDuration: "3.5s",
+                            animationDelay: "1s",
+                            transform: `translate3d(0, ${asliOffset}px, 0)`,
+                        }}
+                    >
+                        <div className="rounded-full bg-white/20 p-2 text-white">
                             <IconLeaf size={18} />
                         </div>
                         <div className="text-left">
-                            <p className="text-xs text-[#3f4945]">100% Asli</p>
-                            <p className="text-base font-bold leading-none text-[#181c1b]">Fresh Wonosari Leaves</p>
+                            <p className="text-xs text-white/90">100% Asli</p>
+                            <p className="text-base font-bold leading-none text-white">Teh Wonosari Segar</p>
                         </div>
                     </div>
 
-                    <div className="absolute bottom-1/4 left-1/4 z-30 hidden -translate-x-1/2 items-center gap-3 rounded-2xl border border-[#bec9c4]/30 bg-white/90 p-4 shadow-xl backdrop-blur-sm md:flex animate-pulse" style={{ animationDuration: "3s" }}>
-                        <div className="rounded-full bg-[#BA7517]/20 p-2 text-[#BA7517]">
+                    <div
+                        className="absolute bottom-1/4 left-1/4 z-30 hidden items-center gap-3 rounded-2xl border border-[#8B4513]/35 bg-[#F4E2D3] p-4 shadow-xl backdrop-blur-sm md:flex will-change-transform"
+                        style={{
+                            transform: `translate3d(-50%, ${bestOffset}px, 0)`,
+                        }}
+                    >
+                        <div className="rounded-full bg-[#8B4513]/20 p-2 text-[#8B4513]">
                             <IconAward size={18} />
                         </div>
                         <div className="text-left">
-                            <p className="text-base font-bold leading-none text-[#181c1b]">Best in Malang</p>
+                            <p className="text-base font-bold leading-none text-[#8B4513]">Best in Malang</p>
                         </div>
                     </div>
 
                     <img
                         src={TEH_MBOIS_IMAGES.heroDrink}
                         alt="Es Teh Tarik Segar"
-                        className="relative z-10 h-full w-auto scale-110 rounded-[3rem] object-contain drop-shadow-2xl"
+                        className="relative z-50 h-full scale-100 object-contain drop-shadow-2xl will-change-transform"
+                        style={{
+                            transform: `translate3d(0, ${teaOffset}px, 0)`,
+                        }}
                     />
 
                     <img
                         src={TEH_MBOIS_IMAGES.teaLeaf}
                         alt="Tea Leaves"
-                        className="absolute right-1/4 top-0 z-20 h-24 w-24 animate-pulse object-contain drop-shadow-xl"
-                        style={{ animationDuration: "5s" }}
+                        className="absolute rotate-30 left-1/3 top-10 z-10 h-24 w-24 object-contain drop-shadow-xl"
+                        style={{ transform: `translate3d(0, ${teaLeavesOffset}px, 0)` }}
                     />
                     <img
                         src={TEH_MBOIS_IMAGES.teaLeaf}
@@ -116,6 +219,12 @@ export default function TehMboisHeroSection() {
                     />
                 </div>
             </div>
+            <style>{`
+                @keyframes float-0 { from { margin-top: 0px; } to { margin-top: -${ICE_DECOR_LAYOUT[0]?.floatOffset ?? 8}px; } }
+                @keyframes float-1 { from { margin-top: 0px; } to { margin-top: -${ICE_DECOR_LAYOUT[1]?.floatOffset ?? 10}px; } }
+                @keyframes float-2 { from { margin-top: 0px; } to { margin-top: -${ICE_DECOR_LAYOUT[2]?.floatOffset ?? 12}px; } }
+                @keyframes float-3 { from { margin-top: 0px; } to { margin-top: -${ICE_DECOR_LAYOUT[3]?.floatOffset ?? 14}px; } }
+            `}</style>
         </section>
     );
 }
