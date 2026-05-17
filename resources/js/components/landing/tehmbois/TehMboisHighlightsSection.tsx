@@ -28,11 +28,10 @@ export default function TehMboisHighlightsSection() {
                     <div className="relative z-10 max-w-[65%]">
                         <h3 className="mb-3 text-2xl font-bold text-[#181c1b]">Es Teh Tarik Mbois</h3>
                         <p className="mb-4 text-sm text-[#3f4945]">Perpaduan teh pekat dan susu kental yang ditarik hingga berbuih lembut.</p>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center flex-wrap gap-4">
                             <span className="text-2xl font-bold text-[#181c1b]">Rp 7.000</span>
-                            <button className="inline-flex items-center gap-2 rounded-full border border-[#6f7975] bg-white px-4 py-2 text-sm font-medium transition-all hover:border-[#096956] hover:bg-[#096956] hover:text-white">
-                                Tambah ke Keranjang
-                                <span>+</span>
+                            <button className=" items-center gap-2 rounded-full  bg-white px-6 py-3 text-sm font-medium transition-all hover:border-[#096956] hover:bg-[#096956] hover:text-white">
+                                Cobain sekarang juga!
                             </button>
                         </div>
                     </div>
@@ -51,12 +50,20 @@ export default function TehMboisHighlightsSection() {
                                 <IconLeaf className="text-[#096956]" size={34} />
                             </div>
                         </div>
-                        <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold">
-                            <span className="rounded-full bg-[#FFD966]/40 px-4 py-1.5 text-[#5B4100]">Gula Aren</span>
-                            <span className="rounded-full bg-[#E6E0D9] px-4 py-1.5 text-[#4A443F]">Lemon Sereh</span>
-                            <span className="rounded-full bg-[#FCE4EC] px-4 py-1.5 text-[#880E4F]">Susu Coklat</span>
-                            <span className="rounded-full bg-[#FFCCBC] px-4 py-1.5 text-[#BF360C]">Jahe Merah</span>
-                            <span className="inline-flex items-center gap-1 rounded-full bg-[#096956]/20 px-4 py-1.5 text-[#096956]">
+                        <div className="mt-4 flex flex-wrap gap-4 text-xs font-semibold text-xl">
+                            <span className="-rotate-2 rounded-full bg-[#FFD966]/40 px-6 py-1.5 text-[#5B4100] transition-transform duration-200 hover:rotate-0">
+                                Gula Aren
+                            </span>
+                            <span className="rotate-1 rounded-full bg-[#E6E0D9] px-6 py-1.5 text-[#4A443F] transition-transform duration-200 hover:rotate-0">
+                                Lemon Sereh
+                            </span>
+                            <span className="-rotate-1 rounded-full bg-[#FCE4EC] px-12 py-1.5 text-[#880E4F] transition-transform duration-200 hover:rotate-0">
+                                Susu Coklat
+                            </span>
+                            <span className="rotate-2 rounded-full bg-[#FFCCBC] px-6 py-2 text-[#BF360C] transition-transform duration-200 hover:rotate-0">
+                                Jahe Merah
+                            </span>
+                            <span className="-rotate-1 inline-flex items-center gap-1 rounded-full bg-[#096956]/20 px-20 py-1.5 text-[#096956] transition-transform duration-200 hover:rotate-0">
                                 Alami
                                 <IconCheck size={14} />
                             </span>

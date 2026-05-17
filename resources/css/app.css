@@ -4,6 +4,15 @@
 @import "@fontsource-variable/figtree";
 @import "@fontsource-variable/nunito-sans";
 @import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/fredoka";
+
+@font-face {
+  font-family: "Cherry Freeland";
+  src: url("/fonts/cherry-freeland.otf") format("opentype");
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -149,5 +158,18 @@
 @layer utilities {
   .font-plus-jakarta {
     font-family: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", "Figtree Variable", sans-serif;
+  }
+
+  .font-fredoka {
+    font-family: "Fredoka Variable", "Fredoka", "Plus Jakarta Sans Variable", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+
+  .font-cherry-freeland {
+    font-family: "Cherry Freeland", "Plus Jakarta Sans Variable", sans-serif;
+    font-style: normal;
+    font-weight: 400;
   }
 }

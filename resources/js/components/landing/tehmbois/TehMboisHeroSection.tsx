@@ -3,7 +3,10 @@ import { TEH_MBOIS_IMAGES } from "./constants";
 
 export default function TehMboisHeroSection() {
     return (
-        <section className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#f7faf7] to-[#f1f4f1] pb-24 pt-28">
+        <section
+            id="tehmbois-hero"
+            className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#f7faf7] to-[#f1f4f1] pb-24 pt-14"
+        >
             <div
                 className="pointer-events-none absolute inset-0 opacity-10"
                 style={{
@@ -13,18 +16,21 @@ export default function TehMboisHeroSection() {
             />
 
             <div className="relative z-10 mx-auto w-full max-w-[1280px] px-4 text-center md:px-8">
-                <div className="mx-auto mb-12 flex max-w-4xl flex-col items-center gap-6">
-                    <div className="inline-flex items-center gap-2 rounded-full border border-[#BA7517]/20 bg-[#BA7517]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#BA7517]">
+                <div className="mx-auto mb-12 flex max-w-6xl flex-col items-center gap-6">
+                    <div className="inline-flex items-center gap-4 rounded-full  bg-[#BA7517]/10 px-8 py-3 text-sm font-semibold tracking-[0.08em] text-[#BA7517]">
                         <IconLeaf size={16} stroke={2} />
-                        Refresh Your Mood
+                        Segarkan Harimu dengan Mbois!
                     </div>
 
-                    <h1 className="text-5xl font-black leading-[1.02] tracking-[-0.04em] text-[#181c1b] md:text-8xl">
+                    <h1 className="font-cherry-freeland text-5xl leading-[1.02] tracking-[0.02em] text-slate-800 md:text-9xl">
                         SEGAR, MBOIS, <br />
                         <span className="relative inline-block text-[#1D9E75]">
-                            ORA MAHAL.
+                            {/* 1. Wrap the text and give it a higher z-index */}
+                            <span className="relative z-20">ORA MAHAL.</span>
+
+                            {/* 2. The SVG sits at a lower z-index */}
                             <svg
-                                className="absolute -bottom-2 left-0 w-full text-[#BA7517] opacity-50"
+                                className="absolute -bottom-5 left-0 w-full text-yellow-800/60 opacity-50 z-10"
                                 preserveAspectRatio="none"
                                 viewBox="0 0 100 20"
                             >
@@ -33,26 +39,28 @@ export default function TehMboisHeroSection() {
                         </span>
                     </h1>
 
-                    <p className="mt-2 max-w-2xl text-lg text-[#3f4945]">
-                        Es teh khas Malang dari teh pilihan Wonosari, dipadukan rasa lokal yang segar dan ramah di
-                        kantong.
-                    </p>
+                    <div className="mt-2 flex w-full max-w-4xl flex-col items-center gap-3 pb-8 md:flex-row md:items-center md:justify-between">
+                        <p className="max-w-3xl text-center text-xl text-[#3f4945] md:text-left">
+                            Es teh khas Malang dari teh pilihan Wonosari, dipadukan rasa lokal yang segar dan ramah di
+                            kantong.
+                        </p>
 
-                    <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
-                        <a
-                            href="#menu"
-                            className="group inline-flex items-center gap-2 rounded-full bg-[#1D9E75] px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-[#1D9E75]/20 transition-colors hover:bg-[#1D9E75]/90"
-                        >
-                            Lihat Menu
-                            <IconArrowNarrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                        </a>
-                        <a
-                            href="#outlet"
-                            className="inline-flex items-center gap-2 rounded-full border-2 border-[#BA7517]/30 px-8 py-4 text-sm font-semibold text-[#BA7517] transition-colors hover:bg-[#BA7517]/5"
-                        >
-                            <IconLeaf size={18} />
-                            Kunjungi Outlet
-                        </a>
+                        <div className="flex items-center w-full justify-start gap-6 md:justify-end">
+                            <a
+                                href="#menu"
+                                className="group inline-flex items-center gap-2 rounded-full bg-[#1D9E75] px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-[#1D9E75]/20 transition-colors hover:bg-[#1D9E75]/90"
+                            >
+                                Lihat Menu
+                                <IconArrowNarrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                            </a>
+                            <a
+                                href="#outlet"
+                                className="inline-flex items-center gap-2 rounded-full border-2 border-[#BA7517]/30 px-8 py-4 text-sm font-semibold text-[#BA7517] transition-colors hover:bg-[#BA7517]/5"
+                            >
+                                <IconLeaf size={18} />
+                                Kunjungi Outlet
+                            </a>
+                        </div>
                     </div>
                 </div>
 

@@ -8,8 +8,8 @@ export default function TehMboisClosingCtaSection() {
                 <div className="pointer-events-none absolute -bottom-20 -right-20 opacity-10">
                     <span className="text-[260px]">??</span>
                 </div>
-                <div className="relative z-10 mx-auto max-w-3xl">
-                    <h2 className="mb-6 text-5xl font-black leading-tight text-[#181c1b]">Siap Ngerasain Kesegaran Mbois?</h2>
+                <div className="relative z-10 mx-auto max-w-5xl">
+                    <h2 className="font-cherry-freeland mb-6 text-6xl font-black leading-tight text-slate-800">Siap Ngerasain Kesegaran Mbois?</h2>
                     <p className="mx-auto mb-10 max-w-xl text-lg text-[#3f4945]">
                         Kunjungi outlet terdekat kami hari ini atau pelajari bagaimana sistem pintar kami membantu kemitraan berkembang pesat.
                     </p>
