@@ -1,5 +1,6 @@
 import { IconArrowNarrowRight, IconAward, IconLeaf, IconStarFilled } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
+import CircularText from "./CircularText";
 import { TEH_MBOIS_IMAGES } from "./constants";
 
 type IceDecorPlacement = {
@@ -204,6 +205,17 @@ export default function TehMboisHeroSection() {
                             transform: `translate3d(0, ${teaOffset}px, 0)`,
                         }}
                     />
+
+                    <div className="absolute right-50 -bottom-10 z-40 hidden -translate-y-1/2 lg:block">
+                        <div className="rounded-full border border-white/40 bg-white/10 p-3 backdrop-blur-sm">
+                            <CircularText
+                                text="SEGAR*ORA*MAHAL*"
+                                onHover="speedUp"
+                                spinDuration={20}
+                                className="scale-90"
+                            />
+                        </div>
+                    </div>
 
                     <img
                         src={TEH_MBOIS_IMAGES.teaLeaf}
