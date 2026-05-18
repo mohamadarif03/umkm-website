@@ -6,15 +6,15 @@ export default function TehMboisFooter() {
     return (
         <footer
             id="kontak"
-            className="mt-20 flex flex-col justify-center gap-10 bg-white px-4 py-12 md:flex-row md:items-start md:px-8"
+            className="mt-20 flex flex-col justify-center items-center gap-10 bg-white px-4 py-12 md:flex-row md:items-start md:px-8"
         >
             <div className="max-w-6xl flex justify-between w-full">
-                <div className="text-center md:text-left">
+                <div className="text-center flex flex-row justify-center items-center gap-6 md:text-left">
                     <a href="#tehmbois-hero" className="mb-3 inline-flex items-center">
                         <img
                             src={TEH_MBOIS_IMAGES.logo}
                             alt="TehMbois"
-                            className="h-8 w-auto object-contain opacity-90 transition-all hover:opacity-100"
+                            className="h-16 w-auto object-contain opacity-90 transition-all hover:opacity-100"
                         />
                     </a>
                     <p className="text-md font-heading text-[#3f4945]">
@@ -22,11 +22,11 @@ export default function TehMboisFooter() {
                     </p>
                 </div>
 
-                <div className="flex flex-col items-center gap-4 text-center md:items-end md:text-right">
+                <div className="flex flex-col items-center justify-center gap-4 text-center md:items-end md:text-right">
                     <p className="text-xs text-[#8d493c] opacity-80">
                         © 2024 TehMbois Indonesia. Mbois Banget, Segar Terus.
                     </p>
-                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:justify-end">
+                    {/* <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:justify-end">
                         {footerLinks.map((link) => (
                             <a
                                 key={link}
@@ -36,7 +36,7 @@ export default function TehMboisFooter() {
                                 {link}
                             </a>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </footer>

@@ -130,23 +130,23 @@ export default function TehMboisHeroSection() {
                         }
 
                         return (
-                        <img
-                            key={`${src}-${index}`}
-                            src={src}
-                            alt=""
-                            aria-hidden="true"
-                            className="pointer-events-none absolute z-20 hidden select-none object-contain md:block"
-                            style={{
-                                left: config.left,
-                                top: config.top,
-                                width: `${config.size}px`,
-                                height: `${config.size}px`,
-                                opacity: config.opacity ?? 0.85,
-                                animation: `float-${index} ${config.floatDuration}s ease-in-out infinite alternate`,
-                                transform: `translate3d(0, ${scrollY * config.depth}px, 0) rotate(${config.rotation}deg)`,
-                                filter: `drop-shadow(0 0 30px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 ${ICE_GLOW_BLUR_PX}px rgba(255,255,255,0.6))`,
-                            }}
-                        />
+                            <img
+                                key={`${src}-${index}`}
+                                src={src}
+                                alt=""
+                                aria-hidden="true"
+                                className="pointer-events-none absolute z-20 hidden select-none object-contain md:block"
+                                style={{
+                                    left: config.left,
+                                    top: config.top,
+                                    width: `${config.size}px`,
+                                    height: `${config.size}px`,
+                                    opacity: config.opacity ?? 0.85,
+                                    animation: `float-${index} ${config.floatDuration}s ease-in-out infinite alternate`,
+                                    transform: `translate3d(0, ${scrollY * config.depth}px, 0) rotate(${config.rotation}deg)`,
+                                    filter: `drop-shadow(0 0 30px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 ${ICE_GLOW_BLUR_PX}px rgba(255,255,255,0.6))`,
+                                }}
+                            />
                         );
                     })}
 
@@ -183,8 +183,8 @@ export default function TehMboisHeroSection() {
                         </div>
                     </div>
 
-                    <div
-                        className="absolute bottom-1/4 left-1/4 z-30 hidden items-center gap-3 rounded-2xl border border-[#8B4513]/35 bg-[#F4E2D3] p-4 shadow-xl backdrop-blur-sm md:flex will-change-transform"
+                    {/* <div
+                        className="absolute bottom-1/4 left-1/4 z-100 hidden items-center gap-3 rounded-2xl border border-[#8B4513]/35 bg-[#F4E2D3] p-4 shadow-xl backdrop-blur-sm md:flex will-change-transform"
                         style={{
                             transform: `translate3d(-50%, ${bestOffset}px, 0)`,
                         }}
@@ -193,9 +193,9 @@ export default function TehMboisHeroSection() {
                             <IconAward size={18} />
                         </div>
                         <div className="text-left">
-                            <p className="text-base font-bold leading-none text-[#8B4513]">Best in Malang</p>
+                            <p className="text-base font-bold leading-none text-[#8B4513]">Terbaik di Malang</p>
                         </div>
-                    </div>
+                    </div> */}
 
                     <img
                         src={TEH_MBOIS_IMAGES.heroDrink}
@@ -206,16 +206,7 @@ export default function TehMboisHeroSection() {
                         }}
                     />
 
-                    <div className="absolute right-50 -bottom-10 z-40 hidden -translate-y-1/2 lg:block">
-                        <div className="rounded-full border border-white/40 bg-white/10 p-3 backdrop-blur-sm">
-                            <CircularText
-                                text="SEGAR*ORA*MAHAL*"
-                                onHover="speedUp"
-                                spinDuration={20}
-                                className="scale-90"
-                            />
-                        </div>
-                    </div>
+
 
                     <img
                         src={TEH_MBOIS_IMAGES.teaLeaf}
@@ -231,6 +222,76 @@ export default function TehMboisHeroSection() {
                     />
                 </div>
             </div>
+
+            {/* Steam-like dissolve bridge into next section */}
+            <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden h-48 z-20 select-none">
+
+                {/* Base Linear Dissolve: Transitions into the next section's starting cream color */}
+                <div
+                    className="absolute inset-x-0 bottom-0 h-full z-10"
+                    style={{
+                        background: "linear-gradient(to top, rgba(245, 236, 220, 1) 0%, rgba(245, 236, 220, 0.4) 50%, rgba(255, 255, 255, 0) 80%, rgba(187, 138, 23, 0) 90%)",
+                    }}
+                />
+
+                {/* Primary Billowing Steam: Deep Warm Tea-Tone Mist Core */}
+                <div
+                    className="absolute -bottom-16 left-1/4 h-64 w-[70%] rounded-full blur-3xl z-10 opacity-70 mix-blend-multiply scale-x-125 animate-pulse duration-[6000ms]"
+                    style={{
+                        background: "radial-gradient(circle at center, rgba(141, 73, 60, 0.15) 0%, rgba(245, 236, 220, 0) 70%)",
+                    }}
+                />
+
+                {/* Secondary Billowing Steam: Fresh Green Tea Accent Mist */}
+                <div
+                    className="absolute -bottom-20 right-1/4 h-60 w-[65%] rounded-full blur-3xl z-10 opacity-40 mix-blend-multiply scale-y-75 animate-pulse duration-[4000ms]"
+                    style={{
+                        background: "radial-gradient(circle at center, rgba(9, 105, 86, 0.1) 0%, rgba(245, 236, 220, 0) 75%)",
+                    }}
+                />
+
+                {/* Intense Warm Vapor Core: Perfectly matches the next section's color to mask the seam */}
+                <div
+                    className="absolute -bottom-12 left-1/2 -translate-x-1/2 h-52 w-[115%] blur-2xl z-10 opacity-95"
+                    style={{
+                        background: "radial-gradient(ellipse at center, rgba(245, 236, 220, 1) 0%, rgba(245, 236, 220, 0) 80%)",
+                    }}
+                />
+
+                {/* Soft Ambient Blend Layer */}
+                <div
+                    className="absolute inset-x-0 bottom-0 h-20 opacity-50 blur-md"
+                    style={{
+                        background: "linear-gradient(to top, rgba(245, 236, 220, 0.6), transparent)",
+                    }}
+                />
+            </div>
+
+            <div
+                className="absolute bottom-38 left-1/3 z-30 hidden items-center gap-3 rounded-2xl border border-[#8B4513]/35 bg-[#F4E2D3] p-4 shadow-xl backdrop-blur-sm md:flex will-change-transform"
+                style={{
+                    transform: `translate3d(-50%, ${bestOffset}px, 0)`,
+                }}
+            >
+                <div className="rounded-full bg-[#8B4513]/20 p-2 text-[#8B4513]">
+                    <IconAward size={18} />
+                </div>
+                <div className="text-left">
+                    <p className="text-base font-bold leading-none text-[#8B4513]">Terbaik di Malang</p>
+                </div>
+            </div>
+
+            <div className="absolute right-1/4 -bottom-10 z-40 hidden -translate-y-1/2 lg:block">
+                <div className="rounded-full border border-white/40 bg-white/10 p-3 backdrop-blur-sm">
+                    <CircularText
+                        text="SEGAR*ORA*MAHAL*"
+                        onHover="speedUp"
+                        spinDuration={20}
+                        className="scale-90"
+                    />
+                </div>
+            </div>
+
             <style>{`
                 @keyframes float-0 { from { margin-top: 0px; } to { margin-top: -${ICE_DECOR_LAYOUT[0]?.floatOffset ?? 8}px; } }
                 @keyframes float-1 { from { margin-top: 0px; } to { margin-top: -${ICE_DECOR_LAYOUT[1]?.floatOffset ?? 10}px; } }

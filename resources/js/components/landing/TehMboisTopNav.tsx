@@ -71,7 +71,7 @@ export default function TehMboisTopNav() {
                             <img
                                 src={TEH_MBOIS_IMAGES.logo}
                                 alt="TehMbois"
-                                className="h-8 w-auto object-contain md:h-10"
+                                className="h-8 w-auto object-contain md:h-16"
                             />
                         </a>
                     </div>
@@ -96,7 +96,7 @@ export default function TehMboisTopNav() {
                             <img
                                 src={TEH_MBOIS_IMAGES.logo}
                                 alt="TehMbois"
-                                className="h-8 w-auto object-contain md:h-10"
+                                className="h-8 w-auto object-contain md:h-14"
                             />
                         </a>
                     </div>

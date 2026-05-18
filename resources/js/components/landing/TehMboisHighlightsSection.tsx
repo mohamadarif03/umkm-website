@@ -1,10 +1,24 @@
 import { IconCheck, IconLeaf } from "@tabler/icons-react";
 import { TEH_MBOIS_IMAGES } from "./constants";
+import { Button } from "../ui/button";
 
 export default function TehMboisHighlightsSection() {
     return (
-        <section className="bg-white py-12">
-            <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-6 px-4 md:grid-cols-3 md:px-8">
+        <section
+            className="relative overflow-x-hidden py-14 pt-0"
+            style={{
+                background:
+                    "linear-gradient(to bottom, rgba(245,236,220,0.8) 0%, rgb(255, 255, 255) 100%)",
+            }}
+        >
+            <div
+                className="pointer-events-none absolute -top-12 left-1/2 h-36 w-[110%] -translate-x-1/2 blur-3xl"
+                style={{
+                    background:
+                        "radial-gradient(ellipse at center, rgba(29,158,117,0.14) 0%, rgba(29,158,117,0) 72%)",
+                }}
+            />
+            <div className="relative mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-6 px-4 md:grid-cols-3 md:px-8">
                 <div className="group relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-3xl border border-[#bec9c4]/30 bg-[#f1f4f1] p-8">
                     <div className="relative z-10 max-w-[60%]">
                         <h3 className="mb-3 text-2xl font-bold text-[#181c1b]">Segarnya Teh Wonosari</h3>
@@ -30,9 +44,9 @@ export default function TehMboisHighlightsSection() {
                         <p className="mb-4 text-sm text-[#3f4945]">Perpaduan teh pekat dan susu kental yang ditarik hingga berbuih lembut.</p>
                         <div className="flex items-center flex-wrap gap-4">
                             <span className="text-2xl font-bold text-[#181c1b]">Rp 7.000</span>
-                            <button className=" items-center gap-2 rounded-full  bg-white px-6 py-3 text-sm font-medium transition-all hover:border-[#096956] hover:bg-[#096956] hover:text-white">
+                            <a href="#menu" className="flex items-center justify-center text-center gap-2 rounded-full  bg-white px-6 py-3 text-sm font-medium transition-all text-[#181c1b] hover:border-[#096956] hover:bg-[#096956] hover:text-white">
                                 Cobain sekarang juga!
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <img

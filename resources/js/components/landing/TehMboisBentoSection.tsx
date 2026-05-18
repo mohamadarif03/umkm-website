@@ -1,8 +1,10 @@
 import { IconArrowNarrowRight, IconCheck, IconBulb, IconTrendingUp } from "@tabler/icons-react";
 import { TEH_MBOIS_IMAGES } from "./constants";
+import { Button } from "../ui/button";
+import { Link } from "@inertiajs/react";
 
 const chartBars = ["40%", "60%", "85%", "70%", "100%", "50%"];
-const chartLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const chartLabels = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
 const chartClasses = [
     "bg-[#C7EF9D]/50 hover:bg-[#C7EF9D]/70",
     "bg-[#86D18C]/50 hover:bg-[#86D18C]/70",
@@ -27,7 +29,7 @@ export default function TehMboisBentoSection() {
                         <div className="absolute bottom-0 left-0 w-full p-8">
                             <div className="mb-3 flex items-center gap-2">
                                 <span className="rounded-full bg-[#096956]/90 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">
-                                    ?? Malang
+                                    Malang
                                 </span>
                             </div>
                             <h3 className="mb-2 text-4xl font-bold text-white">Mampir ke Booth Kami</h3>
@@ -68,23 +70,23 @@ export default function TehMboisBentoSection() {
                         <div className="w-full flex-1">
                             <div className="mb-6 flex items-center gap-2 text-[#3f4945]">
                                 <IconTrendingUp size={18} />
-                                <h3 className="text-sm font-bold uppercase tracking-wider">Operational Dashboard</h3>
+                                <h3 className="text-sm font-bold uppercase tracking-wider">Dashboard Operational</h3>
                             </div>
                             <div className="mb-8 grid grid-cols-2 gap-4">
                                 <div className="rounded-2xl border border-[#bec9c4]/20 bg-[#f1f4f1] p-4">
-                                    <p className="mb-1 text-xs text-[#3f4945]">Daily Revenue</p>
+                                    <p className="mb-1 text-xs text-[#3f4945]">Pendapatan Harian</p>
                                     <p className="text-2xl font-bold text-[#181c1b]">Rp 845.000</p>
                                     <div className="mt-2 flex items-center gap-1 text-xs font-bold text-[#4FAE83]">
                                         <IconTrendingUp size={14} />
-                                        +12.5% vs yesterday
+                                        +12.5% vs kemarin
                                     </div>
                                 </div>
                                 <div className="rounded-2xl border border-[#bec9c4]/20 bg-[#f1f4f1] p-4">
-                                    <p className="mb-1 text-xs text-[#3f4945]">Avg Sales/Day</p>
-                                    <p className="text-2xl font-bold text-[#181c1b]">120 Cups</p>
+                                    <p className="mb-1 text-xs text-[#3f4945]">Rata-rata Penjualan/Hari</p>
+                                    <p className="text-2xl font-bold text-[#181c1b]">120 Gelas</p>
                                     <div className="mt-2 flex items-center gap-1 text-xs font-bold text-[#2E8873]">
                                         <IconCheck size={14} />
-                                        On target
+                                        Sesuai target
                                     </div>
                                 </div>
                             </div>
@@ -110,10 +112,12 @@ export default function TehMboisBentoSection() {
                                 Pantau penjualan, atur stok, hingga dapatkan prediksi AI untuk maksimalkan profit harianmu. Semua
                                 dalam satu dashboard Mbois yang user-friendly.
                             </p>
-                            <button className="inline-flex items-center gap-2 rounded-full border-2 border-[#096956] px-6 py-3 text-sm font-semibold text-[#096956] transition-colors hover:bg-[#096956]/5">
-                                Jelajahi Fitur Dashboard
-                                <IconArrowNarrowRight size={18} />
-                            </button>
+                            <Link href="/dashboard">
+                                <Button className="bg-white inline-flex items-center gap-2 rounded-full border-2 border-[#096956] px-6 py-6 text-sm font-semibold text-[#096956] transition-colors hover:bg-[#096956]/5">
+                                    Jelajahi Fitur Dashboard
+                                    <IconArrowNarrowRight size={18} />
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
