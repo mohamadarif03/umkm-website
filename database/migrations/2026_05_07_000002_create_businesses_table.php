@@ -14,8 +14,8 @@ return new class extends Migration
             $table->foreignId('user_id')
                   ->constrained('users')
                   ->cascadeOnDelete();
-            $table->string('name', 200);                            // "Kedai Es Teh Manis"
-            $table->string('category', 100)->default('F&B');        // bisa dikembangkan ke ENUM
+            $table->string('name', 200);                           
+            $table->string('category', 100)->default('F&B');       
             $table->string('city', 100);
             $table->text('address')->nullable();
             $table->decimal('latitude', 10, 7)->nullable();
