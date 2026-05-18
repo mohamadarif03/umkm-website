@@ -73,7 +73,11 @@ function ProductCard({ item, qty, onAdd, onRemove }: { item: MenuItem, qty: numb
             </div>
 
             <h3 className="mb-2 mt-6 text-2xl font-semibold text-[#181c1b]">{item.name}</h3>
-            <p className="mb-6 flex-grow text-[#3f4945]">{item.description}</p>
+            {item.description ? (
+                <p className="mb-6 min-h-[72px] text-[#3f4945]">{item.description}</p>
+            ) : (
+                <div className="mb-6 min-h-[72px]" />
+            )}
             <div className="mt-auto flex items-center justify-between">
                 <span className="text-2xl font-bold text-[#096956]">{item.price}</span>
                 {qty === 0 ? (
@@ -138,8 +142,7 @@ export default function TehMboisMenuSection() {
                     </p>
                 </div>
 
-                {/* 1. Parent Grid configuration definition */}
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-4 xl:grid-cols-4">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
                     {menuItems.map((item) => (
                         <ProductCard
                             key={item.name}
@@ -150,14 +153,12 @@ export default function TehMboisMenuSection() {
                         />
                     ))}
 
-                    {/* 2. Promo Bundle expanding across 3 columns and 2 rows on large layouts */}
-                    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-[#30826e] to-[#096956] p-6 shadow-lg transition-all hover:shadow-xl hover:-translate-y-1 lg:col-span-3 xl:row-span-3">
+                    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-[#30826e] to-[#096956] p-6 shadow-lg transition-all hover:shadow-xl hover:-translate-y-1 md:col-span-3 xl:col-span-3">
                         <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
                         <div className="absolute right-4 top-4 z-50 rounded-full bg-[#ab6153] px-3 py-1 text-xs font-semibold text-white shadow-sm">
                             PROMO
                         </div>
 
-                        {/* 3. Refactored inner layout content block to support horizontal expansion nicely on desktop */}
                         <div className="relative z-10 flex h-full flex-col gap-6 md:flex-row md:items-stretch">
                             <div className="flex flex-1 flex-col justify-between">
                                 <div>
@@ -191,8 +192,7 @@ export default function TehMboisMenuSection() {
                                 </div>
                             </div>
 
-                            {/* Side preview image module that scales cleanly horizontally alongside text fields */}
-                            <div className="flex flex-1 items-center justify-center overflow-hidden rounded-2xl bg-white/10 max-h-[240px] md:max-h-none">
+                            <div className="flex flex-1 items-center justify-center overflow-hidden rounded-2xl bg-white/10">
                                 <img src={bundleItem.image} alt={bundleItem.name} className="h-full w-full object-cover opacity-95 transition-transform duration-500 group-hover:scale-105" />
                             </div>
                         </div>
