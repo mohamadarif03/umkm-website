@@ -53,10 +53,18 @@ export default function TehMboisTopNav() {
         <>
             <nav
                 className={[
-                    "relative z-40  bg-[#f7faf7] transition-opacity duration-300",
+                    "relative z-40 bg-[#f7faf7]/20 transition-opacity duration-300",
                     showFullNav ? "pointer-events-none opacity-0" : "opacity-100",
                 ].join(" ")}
             >
+
+                <div
+                    className="pointer-events-none absolute inset-0 opacity-10"
+                    style={{
+                        backgroundImage: "radial-gradient(#096956 1px, transparent 2px)",
+                        backgroundSize: "32px 32px",
+                    }}
+                />
                 <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between px-4 py-4 md:px-8">
                     <div className="flex items-center gap-4">
                         <a href="#tehmbois-hero" className="inline-flex items-center" onClick={() => setActiveHash("#tehmbois-hero")}>
@@ -78,7 +86,7 @@ export default function TehMboisTopNav() {
 
             <nav
                 className={[
-                    "fixed inset-x-0 top-0 z-50 border-b border-[#bec9c4]/30 bg-[#f7faf7]/90 backdrop-blur-md transition-all duration-500 ease-out",
+                    "fixed inset-x-0 top-0 z-50 border-b border-[#bec9c4]/30 bg-[#f7faf7]/60 backdrop-blur-md transition-all duration-500 ease-out",
                     showFullNav ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0",
                 ].join(" ")}
             >

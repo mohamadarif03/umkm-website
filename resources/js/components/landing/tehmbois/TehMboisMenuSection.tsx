@@ -27,14 +27,14 @@ const menuItems: MenuItem[] = [
     },
     {
         name: "Es Teh Lemon Sereh",
-        // description: "Sensasi asam segar lemon berpadu hangatnya sereh. Cocok buat siang terik.",
+        description: "Sensasi asam segar lemon berpadu hangatnya sereh. Cocok buat siang terik.",
         price: "Rp 9.000",
         badge: { label: "UNIQUE", className: "bg-[#5d5e60] text-white" },
         image: "/es teh/teh lemon.jpeg",
     },
     {
         name: "Es Teh Susu Coklat",
-        // description: "Buat yang suka manis creamy, campuran teh, susu, dan coklat lezat.",
+        description: "Buat yang suka manis creamy, campuran teh, susu, dan coklat lezat.",
         price: "Rp 10.000",
         image: "/es teh/teh susu.jpeg",
     },
@@ -176,7 +176,7 @@ export default function TehMboisMenuSection() {
 
                                     {(cart[bundleItem.name] || 0) === 0 ? (
                                         <button onClick={() => handleAdd(bundleItem.name)} className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#096956] shadow-md transition-all hover:scale-105 hover:bg-[#ebefeb]">
-                                            <IconShoppingBag size={20} />
+                                            <IconPlus size={18} />
                                         </button>
                                     ) : (
                                         <div className="flex items-center bg-white/20 rounded-full p-1.5 backdrop-blur-sm border border-white/30">
@@ -202,8 +202,8 @@ export default function TehMboisMenuSection() {
 
             {totalItems > 0 && (
                 <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-in slide-in-from-bottom-10 fade-in duration-300">
-                    <div className="mx-auto max-w-[1280px]">
-                        <div className="bg-[#096956] rounded-2xl shadow-2xl p-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 border-2 border-white/10 backdrop-blur-lg">
+                    <div className="mx-auto max-w-[1280px] ">
+                        <div className="bg-[#096956] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.3),0_2px_8px_rgba(0,0,0,0.2)] p-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 border border-white/10 backdrop-blur-lg">
                             <div className="flex items-center gap-4 text-white">
                                 <div className="bg-white/20 p-3 rounded-xl">
                                     <IconShoppingBag size={28} />

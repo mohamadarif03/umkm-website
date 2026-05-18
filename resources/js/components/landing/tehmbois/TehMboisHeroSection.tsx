@@ -67,7 +67,7 @@ export default function TehMboisHeroSection() {
             <div
                 className="pointer-events-none absolute inset-0 opacity-10"
                 style={{
-                    backgroundImage: "radial-gradient(#096956 1px, transparent 1px)",
+                    backgroundImage: "radial-gradient(#096956 1px, transparent 2px)",
                     backgroundSize: "32px 32px",
                 }}
             />
