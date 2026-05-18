@@ -54,12 +54,12 @@ const bundleItem = {
     originalPrice: "Rp 45.000"
 };
 
+
 function ProductCard({ item, qty, onAdd, onRemove }: { item: MenuItem, qty: number, onAdd: () => void, onRemove: () => void }) {
     return (
         <article
             className={[
                 "group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#bec9c4]/30 bg-white p-6 shadow-sm transition-all hover:border-[#096956]/50 hover:shadow-md",
-                spanClass,
             ].join(" ")}
         >
             {item.badge && (
@@ -71,7 +71,7 @@ function ProductCard({ item, qty, onAdd, onRemove }: { item: MenuItem, qty: numb
             <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-[#f1f4f1]">
                 <img src={item.image} alt={item.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
             </div>
-            
+
             <h3 className="mb-2 mt-6 text-2xl font-semibold text-[#181c1b]">{item.name}</h3>
             <p className="mb-6 flex-grow text-[#3f4945]">{item.description}</p>
             <div className="mt-auto flex items-center justify-between">
@@ -138,50 +138,63 @@ export default function TehMboisMenuSection() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:auto-rows-[170px] xl:grid-cols-4">
+                {/* 1. Parent Grid configuration definition */}
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-4 xl:grid-cols-4">
                     {menuItems.map((item) => (
-                        <ProductCard 
-                            key={item.name} 
-                            item={item} 
-                            qty={cart[item.name] || 0} 
-                            onAdd={() => handleAdd(item.name)} 
-                            onRemove={() => handleRemove(item.name)} 
+                        <ProductCard
+                            key={item.name}
+                            item={item}
+                            qty={cart[item.name] || 0}
+                            onAdd={() => handleAdd(item.name)}
+                            onRemove={() => handleRemove(item.name)}
                         />
                     ))}
 
-                    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-[#30826e] to-[#096956] p-6 shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
+                    {/* 2. Promo Bundle expanding across 3 columns and 2 rows on large layouts */}
+                    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-[#30826e] to-[#096956] p-6 shadow-lg transition-all hover:shadow-xl hover:-translate-y-1 lg:col-span-3 xl:row-span-3">
                         <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
-                        <div className="absolute right-4 top-4 z-10 rounded-full bg-[#ab6153] px-3 py-1 text-xs font-semibold text-white shadow-sm">
+                        <div className="absolute right-4 top-4 z-50 rounded-full bg-[#ab6153] px-3 py-1 text-xs font-semibold text-white shadow-sm">
                             PROMO
                         </div>
-                        <div className="relative mb-6 flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-white/10">
-                            <img src={bundleItem.image} alt={bundleItem.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-95" />
-                        </div>
-                        <h3 className="mb-2 text-2xl font-semibold text-white">{bundleItem.name}</h3>
-                        <p className="mb-6 flex-grow text-white/80">
-                            {bundleItem.description}
-                        </p>
-                        <div className="mt-auto flex items-center justify-between">
-                            <div className="flex flex-col">
-                                <span className="text-sm text-white/60 line-through">{bundleItem.originalPrice}</span>
-                                <span className="text-2xl font-bold text-white">{bundleItem.price}</span>
-                            </div>
-                            
-                            {(cart[bundleItem.name] || 0) === 0 ? (
-                                <button onClick={() => handleAdd(bundleItem.name)} className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#096956] shadow-md transition-all hover:scale-105 hover:bg-[#ebefeb]">
-                                    <IconShoppingBag size={20} />
-                                </button>
-                            ) : (
-                                <div className="flex items-center bg-white/20 rounded-full p-1.5 backdrop-blur-sm border border-white/30">
-                                    <button onClick={() => handleRemove(bundleItem.name)} className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#096956] shadow-sm hover:scale-105 transition-transform">
-                                        <IconMinus size={18} />
-                                    </button>
-                                    <span className="w-10 text-center font-extrabold text-white text-lg">{cart[bundleItem.name]}</span>
-                                    <button onClick={() => handleAdd(bundleItem.name)} className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#096956] shadow-sm hover:scale-105 transition-transform">
-                                        <IconPlus size={18} />
-                                    </button>
+
+                        {/* 3. Refactored inner layout content block to support horizontal expansion nicely on desktop */}
+                        <div className="relative z-10 flex h-full flex-col gap-6 md:flex-row md:items-stretch">
+                            <div className="flex flex-1 flex-col justify-between">
+                                <div>
+                                    <h3 className="mb-2 text-2xl font-semibold text-white">{bundleItem.name}</h3>
+                                    <p className="mb-6 text-white/80">
+                                        {bundleItem.description}
+                                    </p>
                                 </div>
-                            )}
+
+                                <div className="mt-auto flex items-center justify-between">
+                                    <div className="flex flex-col">
+                                        <span className="text-sm text-white/60 line-through">{bundleItem.originalPrice}</span>
+                                        <span className="text-2xl font-bold text-white">{bundleItem.price}</span>
+                                    </div>
+
+                                    {(cart[bundleItem.name] || 0) === 0 ? (
+                                        <button onClick={() => handleAdd(bundleItem.name)} className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#096956] shadow-md transition-all hover:scale-105 hover:bg-[#ebefeb]">
+                                            <IconShoppingBag size={20} />
+                                        </button>
+                                    ) : (
+                                        <div className="flex items-center bg-white/20 rounded-full p-1.5 backdrop-blur-sm border border-white/30">
+                                            <button onClick={() => handleRemove(bundleItem.name)} className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#096956] shadow-sm hover:scale-105 transition-transform">
+                                                <IconMinus size={18} />
+                                            </button>
+                                            <span className="w-10 text-center font-extrabold text-white text-lg">{cart[bundleItem.name]}</span>
+                                            <button onClick={() => handleAdd(bundleItem.name)} className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#096956] shadow-sm hover:scale-105 transition-transform">
+                                                <IconPlus size={18} />
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Side preview image module that scales cleanly horizontally alongside text fields */}
+                            <div className="flex flex-1 items-center justify-center overflow-hidden rounded-2xl bg-white/10 max-h-[240px] md:max-h-none">
+                                <img src={bundleItem.image} alt={bundleItem.name} className="h-full w-full object-cover opacity-95 transition-transform duration-500 group-hover:scale-105" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -200,7 +213,7 @@ export default function TehMboisMenuSection() {
                                     <div className="text-2xl font-black">Rp {totalPrice.toLocaleString("id-ID")}</div>
                                 </div>
                             </div>
-                            <button 
+                            <button
                                 onClick={handleCheckout}
                                 className="w-full md:w-auto bg-white text-[#096956] font-extrabold text-lg px-8 py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-slate-50 hover:-translate-y-1 transition-all shadow-lg"
                             >
