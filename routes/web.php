@@ -8,6 +8,10 @@ Route::get('/', function () {
     return Inertia::render('LandingPage');
 })->name('landing');
 
+Route::get('/order', function () {
+    return Inertia::render('OrderCheckout');
+})->name('order');
+
 Route::middleware('guest')->group(function () {
     Route::get('/register', [WebAuthController::class, 'showRegister'])->name('register');
     Route::post('/register', [WebAuthController::class, 'register']);
