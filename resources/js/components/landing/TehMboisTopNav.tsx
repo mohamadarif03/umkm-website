@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { TEH_MBOIS_IMAGES } from "./constants";
-import { Button } from "../../ui/button";
+import { Button } from "../ui/button";
 import { Link } from "@inertiajs/react";
 
 const navLinks = [

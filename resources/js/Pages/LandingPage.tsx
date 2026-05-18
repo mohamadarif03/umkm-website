@@ -1,13 +1,13 @@
 import { Head } from "@inertiajs/react";
 import Lenis from "lenis";
 import { useEffect } from "react";
-import TehMboisBentoSection from "../components/landing/tehmbois/TehMboisBentoSection";
-import TehMboisClosingCtaSection from "../components/landing/tehmbois/TehMboisClosingCtaSection";
-import TehMboisFooter from "../components/landing/tehmbois/TehMboisFooter";
-import TehMboisHeroSection from "../components/landing/tehmbois/TehMboisHeroSection";
-import TehMboisHighlightsSection from "../components/landing/tehmbois/TehMboisHighlightsSection";
-import TehMboisMenuSection from "../components/landing/tehmbois/TehMboisMenuSection";
-import TehMboisTopNav from "../components/landing/tehmbois/TehMboisTopNav";
+import TehMboisBentoSection from "../components/landing/TehMboisBentoSection";
+import TehMboisClosingCtaSection from "../components/landing/TehMboisClosingCtaSection";
+import TehMboisFooter from "../components/landing/TehMboisFooter";
+import TehMboisHeroSection from "../components/landing/TehMboisHeroSection";
+import TehMboisHighlightsSection from "../components/landing/TehMboisHighlightsSection";
+import TehMboisMenuSection from "../components/landing/TehMboisMenuSection";
+import TehMboisTopNav from "../components/landing/TehMboisTopNav";
 import AppLayout from "../layouts/AppLayout";
 
 export default function LandingPage() {
