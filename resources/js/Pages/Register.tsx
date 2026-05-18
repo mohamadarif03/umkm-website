@@ -1,9 +1,8 @@
 import { Head, Link, useForm } from "@inertiajs/react";
-import { IconUserPlus } from "@tabler/icons-react";
+import { IconLeaf, IconEye, IconEyeOff } from "@tabler/icons-react";
 import { Button } from "../components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
 import { Input } from "../components/ui/input";
-import AppLayout from "../layouts/AppLayout";
+import { useState } from "react";
 
 type RegisterForm = {
     name: string;
@@ -20,118 +19,236 @@ export default function RegisterPage() {
         password_confirmation: "",
     });
 
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
     function submit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         post("/register");
     }
 
     return (
-        <AppLayout>
-            <Head title="Register" />
+        <>
+            <Head title="Daftar — TehMbois" />
 
-            <main className="min-h-screen flex justify-center items-center bg-gradient-to-br from-background via-background to-emerald-100/40 px-4 py-8 md:px-8 md:py-12">
-                <Card className="mx-auto w-full max-w-2xl overflow-hidden rounded-3xl border-border/60 p-0 shadow-xl">
-                    <div className="relative bg-card px-6 py-8 md:px-10 md:py-10">
-                        <div className="pointer-events-none absolute -right-14 -top-14 h-36 w-36 rounded-full bg-emerald-200/45 blur-2xl" />
-                        <div className="pointer-events-none absolute -bottom-14 -left-14 h-36 w-36 rounded-full bg-emerald-100/60 blur-2xl" />
-                        <CardHeader className="space-y-3 px-0 pb-7 pt-0">
-                            <div className="inline-flex w-fit items-center gap-3 rounded-xl bg-primary/10 px-3 py-2">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                                    <IconUserPlus size={18} />
+            <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-emerald-100/60 px-4 py-8 sm:px-6 lg:px-8">
+                <div className="pointer-events-none absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-emerald-200/30 blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-emerald-300/20 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-emerald-100/40 blur-3xl" />
+
+                <div className="relative z-10 w-full max-w-[1000px] overflow-hidden rounded-3xl border border-white/60 bg-white/70 shadow-2xl shadow-emerald-900/5 backdrop-blur-xl">
+                    <div className="flex flex-col lg:flex-row">
+                        <div className="relative hidden overflow-hidden lg:block lg:w-[48%]">
+                            <img
+                                src="/es teh/sidelogin.jpeg"
+                                alt="TehMbois Es Teh Collection"
+                                className="absolute inset-0 h-full w-full object-cover"
+                            />
+
+                            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-900/40 to-emerald-800/20" />
+
+                            <div className="absolute inset-0 flex flex-col justify-between p-8">
+                                <div className="flex items-center gap-2.5">
+                                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/15 backdrop-blur-md">
+                                        <IconLeaf size={18} className="text-emerald-300" />
+                                    </div>
+                                    <span className="text-lg font-bold tracking-tight text-white">
+                                        Teh<span className="text-emerald-300">Mbois</span>
+                                    </span>
                                 </div>
-                                <span className="text-lg font-bold tracking-tight">
-                                    Teh<span className="text-primary">Mbois</span> Admin
-                                </span>
+
+                                <div className="space-y-4">
+                                    <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-emerald-200 backdrop-blur-md">
+                                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                        Outlet Management System
+                                    </div>
+
+                                    <h2 className="text-3xl font-bold leading-tight tracking-tight text-white">
+                                        Bergabung dengan
+                                        <br />
+                                        <span className="text-emerald-300">TehMbois.</span>
+                                    </h2>
+
+                                    <p className="text-sm leading-relaxed text-emerald-100/80">
+                                        Daftarkan tim outlet kamu dan mulai kelola bisnis es teh
+                                        dengan platform manajemen modern.
+                                    </p>
+
+                                    <div className="flex items-center gap-5 pt-1">
+                                        <div className="flex flex-col">
+                                            <span className="text-lg font-bold text-white">50+</span>
+                                            <span className="text-xs text-emerald-200/70">Outlet Aktif</span>
+                                        </div>
+                                        <div className="h-8 w-px bg-white/20" />
+                                        <div className="flex flex-col">
+                                            <span className="text-lg font-bold text-white">5K+</span>
+                                            <span className="text-xs text-emerald-200/70">Transaksi/Hari</span>
+                                        </div>
+                                        <div className="h-8 w-px bg-white/20" />
+                                        <div className="flex flex-col">
+                                            <span className="text-lg font-bold text-white">99.9%</span>
+                                            <span className="text-xs text-emerald-200/70">Uptime</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 backdrop-blur-md">
+                                    <img
+                                        src="/logo_raster.png"
+                                        alt="TehMbois Logo"
+                                        className="h-8 w-8 rounded-md object-contain"
+                                    />
+                                    <div>
+                                        <p className="text-xs font-medium text-white">TehMbois Admin</p>
+                                        <p className="text-[10px] text-emerald-200/60">© 2026 TehMbois</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <CardTitle className="text-3xl font-bold tracking-tight">Daftarkan Akun Tim Outlet</CardTitle>
-                                <CardDescription className="mt-1 text-base text-muted-foreground">
-                                    Tambahkan akun baru untuk kasir, staf, atau pengelola operasional TehMbois.
-                                </CardDescription>
+                        </div>
+
+                        <div className="flex flex-col justify-center px-6 py-8 sm:px-10 sm:py-10 lg:w-[52%] lg:px-12 lg:py-10">
+                            <div className="mb-8 lg:hidden">
+                                <div className="flex items-center gap-2.5">
+                                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+                                        <IconLeaf size={18} className="text-primary" />
+                                    </div>
+                                    <span className="text-lg font-bold tracking-tight">
+                                        Teh<span className="text-primary">Mbois</span>
+                                    </span>
+                                </div>
                             </div>
-                        </CardHeader>
-                        <CardContent className="px-0 pb-0 pt-0">
-                            <form onSubmit={submit} className="space-y-4">
+
+                            <div className="space-y-1.5">
+                                <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                                    Buat Akun Baru 🚀
+                                </h1>
+                                <p className="text-sm text-muted-foreground">
+                                    Daftarkan akun untuk tim outlet TehMbois kamu.
+                                </p>
+                            </div>
+
+                            <form onSubmit={submit} className="mt-7 space-y-4">
                                 <div className="space-y-1.5">
-                                    <label htmlFor="name" className="text-sm font-semibold">
-                                        Nama
+                                    <label htmlFor="register-name" className="text-sm font-semibold text-foreground">
+                                        Nama Lengkap
                                     </label>
                                     <Input
-                                        id="name"
+                                        id="register-name"
                                         type="text"
-                                        placeholder="Nama Anda"
+                                        placeholder="Masukkan nama lengkap"
                                         value={data.name}
                                         onChange={(event) => setData("name", event.target.value)}
                                         required
-                                        className="h-12 rounded-xl bg-muted/50"
+                                        className="h-11 rounded-xl border-border/80 bg-muted/40 px-4 text-sm transition-all duration-200 focus:border-primary focus:bg-white focus:shadow-[0_0_0_3px_rgba(16,185,129,0.1)]"
                                     />
-                                    {errors.name ? <p className="text-sm text-destructive">{errors.name}</p> : null}
+                                    {errors.name ? (
+                                        <p className="text-sm text-destructive">{errors.name}</p>
+                                    ) : null}
                                 </div>
 
                                 <div className="space-y-1.5">
-                                    <label htmlFor="email" className="text-sm font-semibold">
-                                        Email
+                                    <label htmlFor="register-email" className="text-sm font-semibold text-foreground">
+                                        Email Address
                                     </label>
                                     <Input
-                                        id="email"
+                                        id="register-email"
                                         type="email"
-                                        placeholder="user@example.com"
+                                        placeholder="nama@tehmbois.com"
                                         value={data.email}
                                         onChange={(event) => setData("email", event.target.value)}
                                         required
-                                        className="h-12 rounded-xl bg-muted/50"
+                                        className="h-11 rounded-xl border-border/80 bg-muted/40 px-4 text-sm transition-all duration-200 focus:border-primary focus:bg-white focus:shadow-[0_0_0_3px_rgba(16,185,129,0.1)]"
                                     />
-                                    {errors.email ? <p className="text-sm text-destructive">{errors.email}</p> : null}
+                                    {errors.email ? (
+                                        <p className="text-sm text-destructive">{errors.email}</p>
+                                    ) : null}
                                 </div>
 
-                                <div className="space-y-1.5">
-                                    <label htmlFor="password" className="text-sm font-semibold">
-                                        Password
-                                    </label>
-                                    <Input
-                                        id="password"
-                                        type="password"
-                                        placeholder="******"
-                                        value={data.password}
-                                        onChange={(event) => setData("password", event.target.value)}
-                                        required
-                                        className="h-12 rounded-xl bg-muted/50"
-                                    />
-                                    {errors.password ? <p className="text-sm text-destructive">{errors.password}</p> : null}
-                                </div>
-
-                                <div className="space-y-1.5">
-                                    <label htmlFor="password_confirmation" className="text-sm font-semibold">
-                                        Konfirmasi Password
-                                    </label>
-                                    <Input
-                                        id="password_confirmation"
-                                        type="password"
-                                        placeholder="******"
-                                        value={data.password_confirmation}
-                                        onChange={(event) => setData("password_confirmation", event.target.value)}
-                                        required
-                                        className="h-12 rounded-xl bg-muted/50"
-                                    />
-                                </div>
-
-                                <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
-                                    <Button type="submit" disabled={processing} className="h-11 min-w-36 rounded-xl">
-                                        {processing ? "Memproses..." : "Daftar"}
-                                    </Button>
-                                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                                        Sudah punya akun?
-                                        <Button asChild variant="outline" className="h-11 rounded-xl">
-                                            <Link href="/login"> Masuk</Link>
-                                        </Button>
+                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                    <div className="space-y-1.5">
+                                        <label htmlFor="register-password" className="text-sm font-semibold text-foreground">
+                                            Password
+                                        </label>
+                                        <div className="relative">
+                                            <Input
+                                                id="register-password"
+                                                type={showPassword ? "text" : "password"}
+                                                placeholder="Min. 8 karakter"
+                                                value={data.password}
+                                                onChange={(event) => setData("password", event.target.value)}
+                                                required
+                                                className="h-11 rounded-xl border-border/80 bg-muted/40 px-4 pr-11 text-sm transition-all duration-200 focus:border-primary focus:bg-white focus:shadow-[0_0_0_3px_rgba(16,185,129,0.1)]"
+                                            />
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowPassword(!showPassword)}
+                                                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
+                                            >
+                                                {showPassword ? <IconEyeOff size={17} /> : <IconEye size={17} />}
+                                            </button>
+                                        </div>
+                                        {errors.password ? (
+                                            <p className="text-sm text-destructive">{errors.password}</p>
+                                        ) : null}
                                     </div>
 
+                                    <div className="space-y-1.5">
+                                        <label htmlFor="register-password-confirm" className="text-sm font-semibold text-foreground">
+                                            Konfirmasi Password
+                                        </label>
+                                        <div className="relative">
+                                            <Input
+                                                id="register-password-confirm"
+                                                type={showConfirmPassword ? "text" : "password"}
+                                                placeholder="Ulangi password"
+                                                value={data.password_confirmation}
+                                                onChange={(event) => setData("password_confirmation", event.target.value)}
+                                                required
+                                                className="h-11 rounded-xl border-border/80 bg-muted/40 px-4 pr-11 text-sm transition-all duration-200 focus:border-primary focus:bg-white focus:shadow-[0_0_0_3px_rgba(16,185,129,0.1)]"
+                                            />
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
+                                            >
+                                                {showConfirmPassword ? <IconEyeOff size={17} /> : <IconEye size={17} />}
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <Button
+                                    type="submit"
+                                    disabled={processing}
+                                    className="h-11 w-full rounded-xl text-sm font-semibold tracking-wide shadow-lg shadow-primary/20 transition-all duration-200 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5 active:translate-y-0"
+                                >
+                                    {processing ? (
+                                        <span className="flex items-center gap-2">
+                                            <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                                            </svg>
+                                            Memproses...
+                                        </span>
+                                    ) : (
+                                        "Daftar Sekarang"
+                                    )}
+                                </Button>
                             </form>
-                        </CardContent>
+
+                            <p className="mt-6 text-center text-sm text-muted-foreground">
+                                Sudah punya akun?{" "}
+                                <Link
+                                    href="/login"
+                                    className="font-semibold text-primary transition-colors hover:text-primary/80"
+                                >
+                                    Masuk di sini
+                                </Link>
+                            </p>
+                        </div>
                     </div>
-                </Card>
-            </main>
-        </AppLayout>
+                </div>
+            </div>
+        </>
     );
 }
