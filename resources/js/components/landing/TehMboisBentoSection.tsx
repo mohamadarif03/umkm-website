@@ -57,29 +57,34 @@ export default function TehMboisBentoSection() {
                             alt="Preview Outlet TehMbois"
                             className="absolute inset-0 h-full w-full object-cover"
                         />
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0b3f35]/95 via-[#0b3f35]/70 to-transparent" />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0b3f35]/95 from-40% via-[#0b3f35]/70 via-65% to-transparent" />
                         <div className="pointer-events-none absolute -right-16 top-1/2 h-44 w-44 -translate-y-1/2 rounded-full bg-[#096956]/10 blur-3xl" />
 
                         <div className="relative z-10 flex flex-col items-stretch justify-between gap-6 md:flex-row md:items-center">
-                            <div className="flex flex-col gap-2 max-w-3xl">
-                                <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-green-100">Outlet Preview</p>
-                                <h3 className="mb-2 text-3xl font-bold text-white md:text-4xl">Temukan Pengalaman Nongkrong TehMbois di Outlet Kami</h3>
-                                <p className="text-slate-200">
-                                    Dari area duduk semi-outdoor sampai suasana hangat khas Malang, lihat sekilas tempat favorit pelanggan
-                                    sebelum mampir langsung ke booth TehMbois.
-                                </p>
-                                <a
-                                    href="#outlet"
-                                    className="mt-5 inline-flex w-fit max-w-full self-start items-center gap-2 rounded-full border-2 border-[#096956] bg-white px-6 py-3 text-sm font-semibold text-[#096956] transition-colors hover:bg-[#096956]/5"
-                                >
-                                    Lihat Preview Outlet
-                                    <IconArrowNarrowRight size={18} />
-                                </a>
+                            <div className="max-w-3xl">
+                                <div className="flex flex-col gap-4 ">
+                                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-green-100">KUNJUNGI OUTLET KAMI</p>
+                                    <h3 className="mb-2 text-3xl font-bold text-white md:text-4xl">Temukan Pengalaman Nongkrong TehMbois di Outlet Kami</h3>
+                                    <p className="text-slate-200">
+                                        Dari area duduk semi-outdoor sampai suasana hangat khas Malang, lihat sekilas tempat favorit pelanggan
+                                        sebelum mampir langsung ke booth TehMbois.
+                                    </p>
+                                </div>
+                                <div className="pt-14">
+                                    <Link href="/outlet">
+                                        <a
+                                            className="mt-5 inline-flex w-fit max-w-full self-start items-center gap-2 rounded-full border-2 border-[#096956] bg-white px-6 py-3 text-sm font-semibold text-[#096956] hover:text-white hover:bg-white/70 transition-colors"
+                                        >
+                                            Lihat Preview Outlet
+                                            <IconArrowNarrowRight size={18} />
+                                        </a>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div
+                    {/* <div
                         id="dashboard"
                         className="flex flex-col items-center gap-8 rounded-3xl border border-[#bec9c4]/30 bg-white p-8 shadow-sm md:flex-row lg:col-span-12"
                     >
@@ -135,7 +140,7 @@ export default function TehMboisBentoSection() {
                                 </Button>
                             </Link>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>
