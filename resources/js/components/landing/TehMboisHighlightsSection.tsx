@@ -23,13 +23,6 @@ export default function TehMboisHighlightsSection() {
                     <div className="relative z-10 max-w-[60%]">
                         <h3 className="mb-3 text-2xl font-bold text-[#181c1b]">Segarnya Teh Wonosari</h3>
                         <p className="mb-6 text-[#3f4945]">Daun teh pilihan dari perkebunan Wonosari Lawang untuk rasa otentik.</p>
-                        <a
-                            href="#tentang"
-                            className="inline-flex items-center gap-1 border-b-2 border-[#181c1b] pb-0.5 text-sm font-semibold text-[#181c1b] transition-all hover:gap-2 hover:border-[#096956] hover:text-[#096956]"
-                        >
-                            Tentang Teh Kami
-                            <span>?</span>
-                        </a>
                     </div>
                     <img
                         src={TEH_MBOIS_IMAGES.teaLeaf}
