@@ -21,15 +21,22 @@
 
 ## 📖 Tentang PredikAI
 
-**PredikAI** adalah platform berbasis AI yang dirancang khusus untuk membantu pelaku UMKM di sektor Food & Beverage (F&B) dalam memprediksi penjualan dan menentukan rekomendasi produksi harian. Sistem ini memanfaatkan data historis penjualan, prakiraan cuaca, hari libur nasional, dan event lokal untuk memberikan insight bisnis yang akurat.
+**PredikAI** adalah platform berbasis kecerdasan buatan yang dirancang khusus untuk membantu pemilik UMKM di sektor Food & Beverage (F&B) membuat keputusan produksi yang lebih cerdas. Dengan memanfaatkan data historis penjualan, prakiraan cuaca, kalender hari libur nasional, dan tren lokal, PredikAI mampu memprediksi perkiraan penjualan mingguan maupun bulanan beserta faktor-faktor yang mempengaruhinya.
 
 Studi kasus yang digunakan adalah **TehMbois**, sebuah brand es teh khas Malang.
 
+### Masalah yang Diselesaikan
+
+Banyak owner UMKM F&B yang salah memprediksi kebutuhan produksi sehingga terjadi **overstock** (bahan terbuang, rugi) atau **understock** (kehabisan stok, kehilangan pelanggan). Keputusan produksi selama ini hanya berdasarkan *feeling* dan perkiraan kasar, bukan data yang terukur.
+
+**PredikAI hadir sebagai konsultan bisnis digital** yang memberikan rekomendasi berbasis data — bukan *feeling* semata. Sistem ini menganalisis pola penjualan historis, memperhitungkan kondisi cuaca, memetakan dampak hari libur nasional dan event lokal, lalu menghasilkan prediksi dan rekomendasi produksi harian yang akurat untuk setiap menu.
+
 ### Tujuan Utama
 
-- 📉 **Mengurangi overstock & understock** — Produksi sesuai prediksi, bukan tebakan.
-- 📊 **Keputusan berbasis data** — Semua rekomendasi didukung oleh analisis AI.
-- 🤖 **AI Business Consultant** — Bukan sekedar POS biasa, tapi asisten cerdas untuk UMKM.
+- 📉 **Mengurangi overstock & understock** — Produksi sesuai prediksi AI, bukan tebakan.
+- 📊 **Keputusan berbasis data** — Semua rekomendasi didukung oleh analisis faktor eksternal dan historis.
+- 🤖 **AI Business Consultant** — Bukan sekedar POS biasa, tapi asisten cerdas untuk UMKM F&B.
+- 🌦️ **Faktor eksternal terintegrasi** — Cuaca, libur nasional, dan event lokal diperhitungkan secara otomatis.
 
 ---
 
