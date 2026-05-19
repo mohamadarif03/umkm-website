@@ -1,4 +1,5 @@
 import { Head } from "@inertiajs/react";
+import Lenis from "lenis";
 import {
     IconArrowNarrowRight,
     IconCoffee,
@@ -8,13 +9,65 @@ import {
     IconStarFilled,
     IconTrophy,
 } from "@tabler/icons-react";
+import { useEffect } from "react";
 import TehMboisFooter from "../components/landing/TehMboisFooter";
 import TehMboisTopNav from "../components/landing/TehMboisTopNav";
 import { TEH_MBOIS_IMAGES } from "../components/landing/constants";
 import AppLayout from "../layouts/AppLayout";
-import { Link, usePage } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 
 export default function RewardsPage() {
+    useEffect(() => {
+        const lenis = new Lenis({
+            duration: 0.9,
+            smoothWheel: true,
+            wheelMultiplier: 1,
+        });
+
+        let rafId = 0;
+        const raf = (time: number) => {
+            lenis.raf(time);
+            rafId = window.requestAnimationFrame(raf);
+        };
+        rafId = window.requestAnimationFrame(raf);
+
+        const handleAnchorClick = (event: Event) => {
+            const target = event.target as HTMLElement | null;
+            const anchor = target?.closest('a[href^="#"]') as HTMLAnchorElement | null;
+
+            if (!anchor) {
+                return;
+            }
+
+            const hash = anchor.getAttribute("href");
+            if (!hash) {
+                return;
+            }
+
+            if (hash === "#") {
+                event.preventDefault();
+                lenis.scrollTo(0, { duration: 0.8 });
+                return;
+            }
+
+            const element = document.querySelector(hash) as HTMLElement | null;
+            if (!element) {
+                return;
+            }
+
+            event.preventDefault();
+            lenis.scrollTo(element, { offset: -72, duration: 0.9 });
+        };
+
+        document.addEventListener("click", handleAnchorClick);
+
+        return () => {
+            document.removeEventListener("click", handleAnchorClick);
+            window.cancelAnimationFrame(rafId);
+            lenis.destroy();
+        };
+    }, []);
+
     return (
         <AppLayout className="bg-[#f7faf7] text-[#181c1b]">
             <Head title="TehMbois Rewards - Ngumpulin Poin? Mbois Dong." />
@@ -194,7 +247,7 @@ export default function RewardsPage() {
                                             <IconTrophy size={36} />
                                         </div>
                                         <div className="flex-1">
-                                            <div className="mb-2 inline-block rounded-full bg-white px-3 py-1 text-xs font-semibold shadow-sm">350 Poin</div>
+                                            {/* <div className="mb-2 inline-block rounded-full bg-white px-3 py-1 text-xs font-semibold shadow-sm">350 Poin</div> */}
                                             <h3 className="text-2xl font-bold">Exclusive Mbois Bundle</h3>
                                             <p className="mt-1 text-sm text-[#3f4945]">2 Minuman Large + 2 Snack + Merchandise Eksklusif</p>
                                         </div>

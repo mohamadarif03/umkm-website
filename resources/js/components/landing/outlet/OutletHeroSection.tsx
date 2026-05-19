@@ -5,7 +5,7 @@ const HERO_IMAGE =
 
 export default function OutletHeroSection() {
     return (
-        <section className="relative flex h-[60vh] items-center overflow-hidden">
+        <section className="relative flex h-[50vh] items-center overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <img src={HERO_IMAGE} alt="Outlet TehMbois" className="h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
@@ -18,11 +18,6 @@ export default function OutletHeroSection() {
                         Nikmati suasana semi-outdoor yang cozy dengan sentuhan kayu hangat dan kesegaran es teh pilihan Wonosari.
                     </p>
 
-                    <div className="mb-12 flex flex-wrap gap-4">
-                        <button className="rounded-xl bg-[#096956] px-8 py-4 text-sm font-semibold text-white transition-colors hover:bg-[#30826e]">
-                            Kunjungi Outlet
-                        </button>
-                    </div>
                 </div>
             </div>
         </section>
