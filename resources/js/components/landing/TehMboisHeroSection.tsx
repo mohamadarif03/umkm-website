@@ -62,7 +62,7 @@ export default function TehMboisHeroSection() {
     return (
         <section
             id="tehmbois-hero"
-            className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#f7faf7] to-[#f1f4f1] pt-14"
+            className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#f7faf7] to-[#f1f4f1] pt-6"
         >
             <div
                 className="pointer-events-none absolute inset-0 opacity-10"
@@ -75,7 +75,7 @@ export default function TehMboisHeroSection() {
             <div className="relative z-10 mx-auto w-full max-w-[1280px] px-4 text-center md:px-8">
                 <div className="mx-auto flex max-w-6xl flex-col items-center gap-6">
                     <div className="inline-flex items-center gap-4 rounded-full  bg-[#BA7517]/10 px-8 py-3 text-sm font-semibold tracking-[0.08em] text-[#BA7517]">
-                        <IconLeaf size={16} stroke={2} />
+                        <IconLeaf size={18} stroke={2} />
                         Segarkan Harimu dengan Mbois!
                     </div>
 
