@@ -1,16 +1,19 @@
 import { Link, usePage } from "@inertiajs/react";
 import {
     IconBell,
-    IconBulb,
     IconChartBar,
     IconLayoutDashboard,
     IconMenu2,
     IconPackage,
     IconReceipt,
-    IconSearch,
     IconCalendarEvent,
     IconFileAnalytics,
     IconBuildingStore,
+    IconSparkles,
+    IconAlertTriangle,
+    IconTrendingUp,
+    IconCloud,
+    IconCheck,
 } from "@tabler/icons-react";
 import { useState, type ReactNode } from "react";
 import AuthButton from "../components/AuthButton";
@@ -22,6 +25,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "../components/ui/sheet";
+import { Badge } from "../components/ui/badge";
 import type { InertiaPageProps } from "../types/page-props";
 import { cn } from "../lib/utils";
 import AppLayout from "./AppLayout";
@@ -48,6 +52,165 @@ const navItems: NavItem[] = [
     { label: "Faktor Eksternal", href: "/dashboard/faktor-eksternal", icon: <IconCalendarEvent size={18} /> },
     { label: "Laporan", href: "/dashboard/laporan", icon: <IconFileAnalytics size={18} /> },
 ];
+
+type NotificationItem = {
+    id: string;
+    title: string;
+    description: string;
+    time: string;
+    type: "ai" | "warning" | "success" | "weather";
+    read: boolean;
+};
+
+const MOCK_NOTIFICATIONS: NotificationItem[] = [
+    {
+        id: "n1",
+        title: "Prediksi AI Diperbarui",
+        description: "Model telah menghitung ulang prediksi minggu depan. Es Teh Tarik diprediksi naik 18% karena cuaca panas.",
+        time: "5 menit lalu",
+        type: "ai",
+        read: false,
+    },
+    {
+        id: "n2",
+        title: "Stok Gula Aren Menipis",
+        description: "Estimasi habis dalam 2 hari berdasarkan rata-rata penggunaan harian. Segera restock.",
+        time: "32 menit lalu",
+        type: "warning",
+        read: false,
+    },
+    {
+        id: "n3",
+        title: "Penjualan Melebihi Target",
+        description: "Penjualan hari ini sudah mencapai 112% dari target prediksi AI. Pertahankan momentum!",
+        time: "1 jam lalu",
+        type: "success",
+        read: false,
+    },
+    {
+        id: "n4",
+        title: "Peringatan Cuaca Besok",
+        description: "Prakiraan hujan deras di wilayah Malang. Pertimbangkan mengurangi produksi minuman dingin.",
+        time: "2 jam lalu",
+        type: "weather",
+        read: true,
+    },
+    {
+        id: "n5",
+        title: "Rekomendasi Produksi Tersedia",
+        description: "Rekomendasi produksi untuk hari Sabtu & Minggu sudah siap. Cek halaman Prediksi AI.",
+        time: "3 jam lalu",
+        type: "ai",
+        read: true,
+    },
+    {
+        id: "n6",
+        title: "Laporan Mingguan Siap",
+        description: "Laporan performa 12-18 Mei 2026 sudah bisa diunduh. Akurasi model: 94.2%.",
+        time: "5 jam lalu",
+        type: "success",
+        read: true,
+    },
+];
+
+const NOTIFICATION_STYLES = {
+    ai: { icon: <IconSparkles size={16} />, bg: "bg-violet-50", text: "text-violet-600", border: "border-violet-100" },
+    warning: { icon: <IconAlertTriangle size={16} />, bg: "bg-amber-50", text: "text-amber-600", border: "border-amber-100" },
+    success: { icon: <IconTrendingUp size={16} />, bg: "bg-emerald-50", text: "text-emerald-600", border: "border-emerald-100" },
+    weather: { icon: <IconCloud size={16} />, bg: "bg-blue-50", text: "text-blue-600", border: "border-blue-100" },
+};
+
+function NotificationPanel() {
+    const [notifications, setNotifications] = useState(MOCK_NOTIFICATIONS);
+
+    const unreadCount = notifications.filter(n => !n.read).length;
+
+    const handleMarkAllRead = () => {
+        setNotifications(notifications.map(n => ({ ...n, read: true })));
+    };
+
+    const handleMarkRead = (id: string) => {
+        setNotifications(notifications.map(n => n.id === id ? { ...n, read: true } : n));
+    };
+
+    return (
+        <Sheet>
+            <SheetTrigger asChild>
+                <button className="relative text-white/60 transition-colors hover:text-white">
+                    <IconBell size={18} />
+                    {unreadCount > 0 && (
+                        <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-400 text-[9px] font-bold text-emerald-950 border border-emerald-900">
+                            {unreadCount}
+                        </span>
+                    )}
+                </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-full sm:w-[420px] p-0 flex flex-col">
+                <SheetHeader className="border-b px-5 py-4">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <SheetTitle className="text-lg">Notifikasi</SheetTitle>
+                            <SheetDescription>{unreadCount} belum dibaca</SheetDescription>
+                        </div>
+                        {unreadCount > 0 && (
+                            <button
+                                onClick={handleMarkAllRead}
+                                className="flex items-center gap-1.5 rounded-lg bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
+                            >
+                                <IconCheck size={14} />
+                                Tandai Semua Dibaca
+                            </button>
+                        )}
+                    </div>
+                </SheetHeader>
+
+                <div className="flex-1 overflow-y-auto">
+                    <div className="divide-y divide-border/60">
+                        {notifications.map((notif) => {
+                            const style = NOTIFICATION_STYLES[notif.type];
+                            return (
+                                <button
+                                    key={notif.id}
+                                    onClick={() => handleMarkRead(notif.id)}
+                                    className={cn(
+                                        "w-full text-left px-5 py-4 transition-colors hover:bg-muted/30",
+                                        !notif.read && "bg-primary/[0.03]"
+                                    )}
+                                >
+                                    <div className="flex items-start gap-3">
+                                        <div className={cn("flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border", style.bg, style.text, style.border)}>
+                                            {style.icon}
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <div className="flex items-center gap-2 mb-0.5">
+                                                <p className={cn("text-sm font-semibold text-foreground truncate", !notif.read && "text-foreground")}>
+                                                    {notif.title}
+                                                </p>
+                                                {!notif.read && (
+                                                    <span className="h-2 w-2 shrink-0 rounded-full bg-primary" />
+                                                )}
+                                            </div>
+                                            <p className="text-xs leading-relaxed text-muted-foreground line-clamp-2">
+                                                {notif.description}
+                                            </p>
+                                            <p className="mt-1.5 text-[11px] font-medium text-muted-foreground/70">
+                                                {notif.time}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                <div className="border-t px-5 py-3">
+                    <p className="text-center text-xs text-muted-foreground">Menampilkan 6 notifikasi terbaru</p>
+                </div>
+            </SheetContent>
+        </Sheet>
+    );
+}
 
 function DesktopNavLinks({ items, currentPath }: { items: NavItem[]; currentPath: string }) {
     return (
@@ -162,13 +325,7 @@ export default function DashboardLayout({ title, description, greenBackground, c
                             </div>
 
                             <div className="flex items-center gap-3">
-                                <button className="hidden text-white/60 transition-colors hover:text-white sm:block">
-                                    <IconSearch size={18} />
-                                </button>
-                                <button className="relative text-white/60 transition-colors hover:text-white">
-                                    <IconBell size={18} />
-                                    <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full border border-emerald-900 bg-emerald-400" />
-                                </button>
+                                <NotificationPanel />
                                 <AuthButton />
                             </div>
                         </div>
