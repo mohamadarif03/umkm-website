@@ -11,7 +11,7 @@ export default function OutletVisitSection() {
         <section className="overflow-hidden bg-[#f1f4f1] py-20">
             <div className="mx-auto max-w-[1280px] px-4 md:px-8">
                 <div className="grid items-center gap-16 lg:grid-cols-2">
-                    <div className="space-y-8">
+                    <div>
                         <div className="group relative h-[350px] w-full overflow-hidden rounded-[2rem] border border-[#bec9c4]/40 shadow-lg">
                             <iframe
                                 src={MAPS_EMBED_URL}
@@ -25,6 +25,27 @@ export default function OutletVisitSection() {
                                 className="h-full w-full"
                             />
                         </div>
+                    </div>
+
+                    <div className="space-y-8 lg:pl-8">
+                        <h2 className="mb-6 text-5xl font-black leading-tight text-[#181c1b]">Siap Nongkrong Bareng TehMbois?</h2>
+                        <div className="flex flex-col gap-4 sm:flex-row">
+                            <a
+                                href={MAPS_EXTERNAL_URL}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-[#096956] px-8 py-5 text-sm font-semibold text-white shadow-md transition-all hover:scale-105"
+                            >
+                                Buka Google Maps
+                            </a>
+                            <a
+                                href="/#menu"
+                                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-[#6f7975] bg-white px-8 py-5 text-sm font-semibold text-[#181c1b] transition-all hover:bg-[#e0e3e0]"
+                            >
+                                Lihat Menu
+                                <IconArrowNarrowRight size={18} />
+                            </a>
+                        </div>
 
                         <div className="grid gap-6 sm:grid-cols-2">
                             <div className="rounded-2xl bg-white p-6">
@@ -33,7 +54,7 @@ export default function OutletVisitSection() {
                                     <h4 className="text-sm font-bold">Alamat</h4>
                                 </div>
                                 <p className="text-sm text-[#181c1b]">
-                                    Jl. Soekarno-Hatta No. 42,
+                                    Jl. Veteran No.10-11
                                     <br />
                                     Lowokwaru, Malang
                                 </p>
@@ -45,35 +66,7 @@ export default function OutletVisitSection() {
                                     <h4 className="text-sm font-bold">Jam Operasional</h4>
                                 </div>
                                 <p className="text-sm text-[#181c1b]">10.00 - 22.00 WIB</p>
-                         
                             </div>
-                        </div>
-                    </div>
-
-                    <div className="lg:pl-8">
-                        <h2 className="mb-6 text-5xl font-black leading-tight text-[#181c1b]">Siap Nongkrong Bareng TehMbois?</h2>
-                        <p className="mb-10 text-lg leading-relaxed text-[#3f4945]">
-                            Rasakan sensasi teh autentik yang diseduh langsung di tempat. Suasana santai, teman asik, dan segelas es
-                            teh mbois adalah kunci harimu yang produktif.
-                        </p>
-
-                        <div className="flex flex-col gap-4 sm:flex-row">
-                            <a
-                                href={MAPS_EXTERNAL_URL}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-[#096956] px-8 py-5 text-sm font-semibold text-white shadow-md transition-all hover:scale-105"
-                            >
-                                <IconMapPin size={18} />
-                                Buka Google Maps
-                            </a>
-                            <a
-                                href="/#menu"
-                                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-[#6f7975] bg-white px-8 py-5 text-sm font-semibold text-[#181c1b] transition-all hover:bg-[#e0e3e0]"
-                            >
-                                Lihat Menu
-                                <IconArrowNarrowRight size={18} />
-                            </a>
                         </div>
                     </div>
                 </div>

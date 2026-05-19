@@ -155,8 +155,8 @@ export default function RewardsPage() {
                                     <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#096956] text-white shadow-md shadow-[#096956]/20">
                                         <IconCoffee size={24} />
                                     </div>
-                                    <h3 className="mb-3 text-2xl font-bold">1. Beli Minuman</h3>
-                                    <p className="text-[#3f4945]">Jajan TehMbois favoritmu di outlet terdekat atau pesan online.</p>
+                                    <h3 className="mb-3 text-2xl font-bold">1. Beli & Buat Akun</h3>
+                                    <p className="text-[#3f4945]">Daftarkan akunmu, lalu jajan TehMbois favoritmu di outlet terdekat.</p>
                                 </div>
 
                                 <div className="hidden md:flex items-center justify-center text-[#096956]">

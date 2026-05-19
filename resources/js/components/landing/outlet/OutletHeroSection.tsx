@@ -8,12 +8,12 @@ export default function OutletHeroSection() {
         <section className="relative flex h-[50vh] items-center overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <img src={HERO_IMAGE} alt="Outlet TehMbois" className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
             </div>
 
             <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-0">
                 <div className="max-w-4xl text-white">
-                    <h1 className="font-cherry-freeland mb-6 text-5xl text-slate-100 leading-tight md:text-7xl">Nongkrong Mbois di Tengah Kota Malang</h1>
+                    <h1 className="font-cherry-freeland mb-6 text-5xl text-slate-100 leading-tight md:text-7xl">Nongkrong Mbois di Kota Malang</h1>
                     <p className="mb-10 text-lg text-white/90">
                         Nikmati suasana semi-outdoor yang cozy dengan sentuhan kayu hangat dan kesegaran es teh pilihan Wonosari.
                     </p>

@@ -1,6 +1,7 @@
 import { IconArrowNarrowRight, IconAward, IconLeaf, IconStarFilled } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import CircularText from "./CircularText";
+import { Link } from "@inertiajs/react";
 import { TEH_MBOIS_IMAGES } from "./constants";
 
 type IceDecorPlacement = {
@@ -110,13 +111,15 @@ export default function TehMboisHeroSection() {
                                 Lihat Menu
                                 <IconArrowNarrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                             </a>
-                            <a
-                                href="#outlet"
-                                className="inline-flex items-center gap-2 rounded-full border-2 border-[#BA7517]/30 px-8 py-4 text-sm font-semibold text-[#BA7517] transition-colors hover:bg-[#BA7517]/5"
-                            >
-                                <IconLeaf size={18} />
-                                Kunjungi Outlet
-                            </a>
+                            <Link href="/outlet">
+                                <a
+                                    href="#outlet"
+                                    className="inline-flex items-center gap-2 rounded-full border-2 border-[#BA7517]/30 px-8 py-4 text-sm font-semibold text-[#BA7517] transition-colors hover:bg-[#BA7517]/5"
+                                >
+                                    <IconLeaf size={18} />
+                                    Kunjungi Outlet
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
