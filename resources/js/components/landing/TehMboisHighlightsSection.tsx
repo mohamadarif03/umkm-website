@@ -61,7 +61,7 @@ export default function TehMboisHighlightsSection() {
                         <div className="mb-4 flex items-start justify-between">
                             <h3 className="max-w-[200px] text-2xl font-bold text-[#181c1b]">Mbois Banget, Gak Pake Kimia</h3>
                             <div className="opacity-60">
-                                <IconLeaf className="text-[#096956]" size={34} />
+                                <IconLeaf className="text-[#096956]" size={60} />
                             </div>
                         </div>
                         <div className="mt-4 flex flex-wrap gap-4 text-xs font-semibold text-xl">
@@ -82,9 +82,6 @@ export default function TehMboisHighlightsSection() {
                                 <IconCheck size={14} />
                             </span>
                         </div>
-                    </div>
-                    <div className="absolute -bottom-8 -right-8 opacity-5">
-                        <IconLeaf size={160} />
                     </div>
                 </div>
             </div>

@@ -12,6 +12,14 @@ Route::get('/order', function () {
     return Inertia::render('OrderCheckout');
 })->name('order');
 
+Route::get('/outlet', function () {
+    return Inertia::render('OutletPage');
+})->name('outlet');
+
+Route::get('/rewards', function () {
+    return Inertia::render('RewardsPage');
+})->name('rewards');
+
 Route::middleware('guest')->group(function () {
     Route::get('/register', [WebAuthController::class, 'showRegister'])->name('register');
     Route::post('/register', [WebAuthController::class, 'register']);
