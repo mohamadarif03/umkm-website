@@ -1,95 +1,261 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="public/logo.svg" width="80" alt="PredikAI Logo">
 </p>
 
-## About Laravel
+<h1 align="center">PredikAI — TehMbois</h1>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+  <strong>Platform AI Business Intelligence untuk UMKM Food & Beverage</strong>
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white" alt="Laravel 13">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" alt="React 19">
+  <img src="https://img.shields.io/badge/Inertia.js-3-7C3AED?logo=inertia&logoColor=white" alt="Inertia.js 3">
+  <img src="https://img.shields.io/badge/TailwindCSS-4-06B6D4?logo=tailwindcss&logoColor=white" alt="TailwindCSS 4">
+  <img src="https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white" alt="TypeScript 6">
+  <img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" alt="Vite 8">
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📖 Tentang PredikAI
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**PredikAI** adalah platform berbasis kecerdasan buatan yang dirancang khusus untuk membantu pemilik UMKM di sektor Food & Beverage (F&B) membuat keputusan produksi yang lebih cerdas. Dengan memanfaatkan data historis penjualan, prakiraan cuaca, kalender hari libur nasional, dan tren lokal, PredikAI mampu memprediksi perkiraan penjualan mingguan maupun bulanan beserta faktor-faktor yang mempengaruhinya.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Studi kasus yang digunakan adalah **TehMbois**, sebuah brand es teh khas Malang.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Masalah yang Diselesaikan
 
-## Agentic Development
+Banyak owner UMKM F&B yang salah memprediksi kebutuhan produksi sehingga terjadi **overstock** (bahan terbuang, rugi) atau **understock** (kehabisan stok, kehilangan pelanggan). Keputusan produksi selama ini hanya berdasarkan *feeling* dan perkiraan kasar, bukan data yang terukur.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+**PredikAI hadir sebagai konsultan bisnis digital** yang memberikan rekomendasi berbasis data — bukan *feeling* semata. Sistem ini menganalisis pola penjualan historis, memperhitungkan kondisi cuaca, memetakan dampak hari libur nasional dan event lokal, lalu menghasilkan prediksi dan rekomendasi produksi harian yang akurat untuk setiap menu.
+
+### Tujuan Utama
+
+- 📉 **Mengurangi overstock & understock** — Produksi sesuai prediksi AI, bukan tebakan.
+- 📊 **Keputusan berbasis data** — Semua rekomendasi didukung oleh analisis faktor eksternal dan historis.
+- 🤖 **AI Business Consultant** — Bukan sekedar POS biasa, tapi asisten cerdas untuk UMKM F&B.
+- 🌦️ **Faktor eksternal terintegrasi** — Cuaca, libur nasional, dan event lokal diperhitungkan secara otomatis.
+
+---
+
+## ✨ Fitur Utama
+
+| Modul | Deskripsi |
+|---|---|
+| **Landing Page** | Showcase produk TehMbois dengan fitur order interaktif |
+| **Dashboard Owner** | Ringkasan penjualan, prediksi AI, cuaca, dan rekomendasi |
+| **Manajemen Bisnis** | CRUD outlet/kedai, switch antar cabang |
+| **Manajemen Menu** | CRUD menu, HPP, harga jual, import dari Excel/CSV |
+| **Input Penjualan** | Form input harian per menu, koreksi data, riwayat transaksi |
+| **Prediksi & Rekomendasi AI** | Faktor eksternal, prediksi mingguan/bulanan, rekomendasi produksi dengan override |
+| **Faktor Eksternal** | Prakiraan cuaca 14 hari, kalender libur nasional, event lokal |
+| **Laporan Performa** | Grafik aktual vs prediksi, breakdown per menu, badge akurasi, download PDF |
+| **Autentikasi** | Register, Login, Logout dengan JWT |
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+- **PHP 8.3+**
+- **Laravel 13** — Framework utama
+- **Inertia.js** — Bridge antara Laravel dan React (SPA tanpa API terpisah)
+- **Laravel Sanctum** — API authentication
+- **JWT Auth** — Token-based authentication untuk API
+- **Maatwebsite Excel** — Import/export data Excel & CSV
+- **L5-Swagger** — Dokumentasi API otomatis
+
+### Frontend
+- **React 19** — UI library
+- **TypeScript 6** — Type safety
+- **Vite 8** — Build tool & dev server
+- **TailwindCSS 4** — Utility-first CSS framework
+- **Recharts** — Charting library untuk grafik dan visualisasi data
+- **Radix UI + Shadcn UI** — Komponen UI accessible dan modern
+- **Tabler Icons** — Icon library
+- **Motion (Framer Motion)** — Animasi dan transisi halus
+- **Lenis** — Smooth scrolling
+
+### Database
+- **MySQL** — Database utama
+
+---
+
+## 🚀 Instalasi & Setup
+
+### Prasyarat
+
+Pastikan perangkat Anda sudah terinstal:
+
+- [PHP 8.3+](https://www.php.net/)
+- [Composer](https://getcomposer.org/)
+- [Node.js 20+](https://nodejs.org/) & npm
+- [MySQL 8+](https://www.mysql.com/)
+- [Git](https://git-scm.com/)
+
+### Langkah Instalasi
+
+**1. Clone Repository**
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/mohamadarif03/umkm-website.git
+cd umkm-website
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-## Docker Hub Deployment
-
-This project includes Docker files for local build and VPS pull-based deployment.
-
-### 1) Build and push images to Docker Hub
+**2. Install Dependensi PHP**
 
 ```bash
-docker compose build app web
-docker compose push app web
+composer install
 ```
 
-By default, images are tagged as:
-
-- `afifalhauzan123/umkm-website-app:latest`
-- `afifalhauzan123/umkm-website-web:latest`
-
-You can override namespace/tag:
+**3. Install Dependensi Node.js**
 
 ```bash
-DOCKERHUB_NAMESPACE=afifalhauzan123 IMAGE_TAG=v1 docker compose build app web
-DOCKERHUB_NAMESPACE=afifalhauzan123 IMAGE_TAG=v1 docker compose push app web
+npm install
 ```
 
-### 2) Run on VPS using pulled images only
-
-Use the VPS compose file (no local build required):
+**4. Konfigurasi Environment**
 
 ```bash
-docker compose -f docker-compose.vps.yml up -d
+cp .env.example .env
 ```
 
-Or with custom tag:
+Kemudian buka file `.env` dan sesuaikan konfigurasi berikut:
+
+```env
+DB_DATABASE=predikai
+DB_USERNAME=root
+DB_PASSWORD=password_anda
+
+GEMINI_API_KEY=api_key_gemini_anda
+```
+
+**5. Generate Application Key**
 
 ```bash
-DOCKERHUB_NAMESPACE=afifalhauzan123 IMAGE_TAG=v1 docker compose -f docker-compose.vps.yml up -d
+php artisan key:generate
 ```
+
+**6. Generate JWT Secret**
+
+```bash
+php artisan jwt:secret
+```
+
+**7. Jalankan Migrasi Database**
+
+Pastikan database MySQL `predikai` sudah dibuat terlebih dahulu, lalu jalankan:
+
+```bash
+php artisan migrate
+```
+
+**8. (Opsional) Jalankan Seeder**
+
+```bash
+php artisan db:seed
+```
+
+**9. Jalankan Aplikasi**
+
+Buka **dua terminal** secara bersamaan:
+
+```bash
+# Terminal 1 — Laravel Backend
+php artisan serve
+```
+
+```bash
+# Terminal 2 — Vite Dev Server (Frontend)
+npm run dev
+```
+
+Atau gunakan perintah shortcut:
+
+```bash
+composer dev
+```
+
+Aplikasi akan berjalan di **http://localhost:8000**.
+
+---
+
+## 📁 Struktur Project
+
+```
+umkm-website/
+├── app/                    # Logic backend (Controllers, Models, dll)
+├── database/               # Migrasi, Seeder, Factory
+├── public/                 # Asset publik (gambar produk, logo)
+├── resources/
+│   ├── css/                # Stylesheet utama
+│   └── js/
+│       ├── components/     # Komponen reusable (UI, Dashboard cards)
+│       ├── layouts/        # Layout utama (DashboardLayout, AppLayout)
+│       └── Pages/          # Halaman Inertia.js
+├── routes/
+│   ├── web.php             # Routes halaman (Inertia)
+│   └── api.php             # Routes API (REST)
+├── .env.example            # Template konfigurasi environment
+├── composer.json           # Dependensi PHP
+├── package.json            # Dependensi Node.js
+└── vite.config.js          # Konfigurasi Vite
+```
+
+---
+
+## 🔗 API Endpoints
+
+Dokumentasi API tersedia melalui Swagger UI setelah menjalankan aplikasi:
+
+```
+http://localhost:8000/api/documentation
+```
+
+### Ringkasan Endpoint
+
+| Method | Endpoint | Deskripsi |
+|--------|----------|-----------|
+| `POST` | `/api/register` | Registrasi user baru |
+| `POST` | `/api/login` | Login dan mendapatkan token |
+| `POST` | `/api/logout` | Logout user |
+| `GET` | `/api/me` | Profil user yang login |
+| `CRUD` | `/api/businesses` | Manajemen bisnis/kedai |
+| `CRUD` | `/api/businesses/{id}/menus` | Manajemen menu per bisnis |
+| `POST` | `/api/businesses/{id}/menus/import` | Import menu dari Excel/CSV |
+| `CRUD` | `/api/businesses/{id}/daily-sales` | Input penjualan harian |
+| `GET` | `/api/businesses/{id}/predik-ai/external-factors` | Data faktor eksternal AI |
+
+---
+
+## 👤 Role Pengguna
+
+| Role | Akses |
+|------|-------|
+| **Owner** | Dashboard lengkap, prediksi AI, manajemen bisnis & menu, laporan, semua fitur |
+| **Cashier** *(planned)* | Input transaksi sederhana, UI minimalis, mobile-friendly |
+
+---
+
+## 🎨 Design System
+
+Aplikasi ini mengikuti design system modern SaaS terinspirasi dari **Stripe**, **Notion**, **Linear**, dan **Vercel**:
+
+- **Warna Utama**: Emerald green `#096956`, White, Neutral gray
+- **Font**: Plus Jakarta Sans, Figtree, Nunito Sans
+- **Komponen**: Card-based layout, rounded corners, soft shadows
+- **Animasi**: Micro-interactions, smooth scroll (Lenis), hover transitions
+
+---
+
+## 📄 Lisensi
+
+Project ini dikembangkan untuk keperluan akademis dan pembelajaran.
+
+---
+
+<p align="center">
+  Dibuat dengan ❤️ untuk UMKM Indonesia
+</p>
