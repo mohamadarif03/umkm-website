@@ -62,7 +62,7 @@ export default function TehMboisHeroSection() {
     return (
         <section
             id="tehmbois-hero"
-            className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#f7faf7] to-[#f1f4f1] pt-14"
+            className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#f7faf7] to-[#f1f4f1] pt-6"
         >
             <div
                 className="pointer-events-none absolute inset-0 opacity-10"

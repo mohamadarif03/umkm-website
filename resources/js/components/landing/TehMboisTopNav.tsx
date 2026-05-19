@@ -6,7 +6,7 @@ import { Link } from "@inertiajs/react";
 const navLinks = [
     // { href: "#tehmbois-hero", label: "Home" },
     { href: "#menu", label: "Menu" },
-    { href: "#insight", label: "Insight" },
+    { href: "#insight", label: "Outlet" },
     { href: "#outlet", label: "Tentang Kami" },
     { href: "#kontak", label: "Kontak" },
 ];
@@ -75,6 +75,28 @@ export default function TehMboisTopNav() {
                             />
                         </a>
                     </div>
+
+                    <div className="hidden items-center gap-4 md:flex">
+                        {navLinks.map((item) => (
+                            <a
+                                key={item.label}
+                                href={item.href}
+                                onClick={() => setActiveHash(item.href)}
+                                className={[
+                                    "relative rounded-full px-4 py-2 text-sm font-semibold transition-all",
+                                    activeHash === item.href
+                                        ? "text-[#096956]"
+                                        : "text-[#3f4945] hover:bg-[#096956]/5 hover:text-[#096956]",
+                                ].join(" ")}
+                            >
+                                {item.label}
+                                {activeHash === item.href ? (
+                                    <span className="absolute bottom-1 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-[#096956]" />
+                                ) : null}
+                            </a>
+                        ))}
+                    </div>
+                    
                     <Link href="/dashboard">
                         <Button className="inline-flex rounded-full bg-[#096956] px-5 py-2.5 text-xs font-medium text-white transition-colors hover:bg-[#096956]/90 sm:px-6 sm:text-sm">
                             Dashboard Mitra
