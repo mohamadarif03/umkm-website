@@ -23,7 +23,7 @@ export default function RewardsPage() {
                 <TehMboisTopNav />
 
                 <main id="rewards" className="overflow-hidden pb-20 pt-6">
-                    <section className="relative mx-auto max-w-7xl px-4 pb-14 pt-8 md:pt-10">
+                    <section className="relative mx-auto max-w-6xl px-4 pb-14 pt-8 md:pt-10">
                         <div
                             className="absolute inset-0 -z-10 rounded-3xl opacity-50"
                             style={{

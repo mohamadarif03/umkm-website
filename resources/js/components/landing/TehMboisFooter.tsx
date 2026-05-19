@@ -4,7 +4,7 @@ export default function TehMboisFooter() {
     return (
         <footer
             id="kontak"
-            className="mt-20 flex flex-col items-center justify-center gap-10 bg-white px-4 py-12 md:flex-row md:items-start md:px-8"
+            className="flex flex-col items-center justify-center gap-10 bg-white px-4 py-12 md:flex-row md:items-start md:px-8"
         >
             <div className="max-w-6xl flex w-full justify-between">
                 <div className="text-center flex flex-row items-center justify-center gap-6 md:text-left">
