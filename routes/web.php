@@ -27,13 +27,29 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::get('/produk', function () {
-        return Inertia::render('Products');
-    })->name('products');
+    Route::get('/manajemen-menu', function () {
+        return Inertia::render('MenuManagement');
+    })->name('menu-management');
 
-    Route::get('/insight', function () {
-        return Inertia::render('Insights');
-    })->name('insights');
+    Route::get('/penjualan', function () {
+        return Inertia::render('SalesInput');
+    })->name('sales');
+
+    Route::get('/manajemen-bisnis', function () {
+        return Inertia::render('BusinessManagement');
+    })->name('business-management');
+
+    Route::get('/prediksi', function () {
+        return Inertia::render('PrediksiRekomendasi');
+    })->name('prediksi');
+
+    Route::get('/laporan', function () {
+        return Inertia::render('Reports');
+    })->name('reports');
+
+    Route::get('/faktor-eksternal', function () {
+        return Inertia::render('ExternalFactors');
+    })->name('external-factors');
 
     Route::get('/pengaturan-bisnis', function () {
         return Inertia::render('BusinessSettings');

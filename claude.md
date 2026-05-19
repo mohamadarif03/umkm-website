@@ -5,13 +5,11 @@
 PredikAI adalah platform berbasis AI untuk membantu UMKM Food & Beverage (F&B) memprediksi penjualan dan menentukan rekomendasi produksi berdasarkan data historis penjualan, cuaca, hari libur nasional, dan event lokal.
 
 Tujuan utama sistem:
-
 - Mengurangi overstock dan understock
 - Membantu owner membuat keputusan produksi berbasis data
 - Menjadi AI business consultant untuk UMKM F&B
 
 Target pengguna utama:
-
 - Owner bisnis F&B
 - Cashier (opsional, hanya input transaksi)
 
@@ -20,16 +18,13 @@ Target pengguna utama:
 # Main Features
 
 ## Authentication
-
 - Register
 - Login
 - Logout
 - Change password
 
 ## Dashboard
-
 Dashboard modern dan informatif dengan:
-
 - Summary sales
 - Prediction overview
 - Recommendation overview
@@ -38,20 +33,17 @@ Dashboard modern dan informatif dengan:
 - External factor insights
 
 ## Business Management
-
 - List businesses
 - Create business
 - Edit business
 - Deactivate business
 
 Fields:
-
 - Business name
 - Address
 - City
 
 ## Menu & Product Management
-
 - List menus
 - Add menu
 - Edit menu
@@ -59,7 +51,6 @@ Fields:
 - Import menu from Excel/CSV
 
 Menu fields:
-
 - Name
 - Selling price
 - COGS
@@ -67,7 +58,6 @@ Menu fields:
 - Unit
 
 ## Sales Data Input
-
 - Manual sales input
 - Bulk sales input
 - Edit sales history
@@ -75,29 +65,24 @@ Menu fields:
 - View sales history by date range
 
 System concept:
-
 - Owner can manually input data
 - Future support for cashier role
 - Cashier transaction automatically syncs to sales records
 
 ## AI Prediction
-
 ### External Factors
-
 - Weather forecast
 - National holidays
 - Local events
 - Impact estimation
 
 ### Sales Prediction
-
 - Weekly prediction
 - Monthly prediction
 - Prediction comparison
 - Influencing factors analysis
 
 ### Production Recommendation
-
 - Daily production recommendation
 - Override recommendation with reason
 - Recommendation vs realization history
@@ -107,7 +92,6 @@ System concept:
 # UI/UX Direction
 
 Style:
-
 - Modern SaaS dashboard
 - Clean
 - Minimalist
@@ -116,14 +100,12 @@ Style:
 - AI-centric
 
 Preferred colors:
-
 - Green
 - Emerald
 - White
 - Neutral gray
 
 Design inspiration:
-
 - Stripe
 - Notion
 - Linear
@@ -131,7 +113,6 @@ Design inspiration:
 - Modern analytics dashboards
 
 Use:
-
 - Rounded corners
 - Clean spacing
 - Card-based layouts
@@ -140,7 +121,6 @@ Use:
 - Elegant typography
 
 Avoid:
-
 - Cluttered layouts
 - Excessive colors
 - Overcomplicated UI
@@ -153,7 +133,6 @@ IMPORTANT:
 Focus on UI/frontend only unless explicitly requested otherwise.
 
 Do not implement:
-
 - Backend logic
 - Database queries
 - API integration
@@ -162,7 +141,6 @@ Do not implement:
 - Validation logic
 
 Only create:
-
 - Layouts
 - Components
 - Pages
@@ -176,57 +154,22 @@ Use mock/dummy data when needed.
 
 # Coding Rules
 
-IMPORTANT:
+CRITICAL & MANDATORY:
+- **ABSOLUTELY NO CODE COMMENTS**: Dilarang keras menulis komentar sedikitpun di dalam kode untuk menjelaskan logika, fungsi, atau baris kode. Kode tidak boleh memiliki komentar penjelasan sama sekali.
+- **STRICT CLEAN CODE**: Kode yang dihasilkan wajib memenuhi standar *Clean Code* tertinggi. Kode harus "self-explanatory" (menjelaskan dirinya sendiri) melalui struktur yang baik dan penamaan yang sangat jelas, sehingga tidak membutuhkan komentar sama sekali.
+- Use exact, semantic, and descriptive naming for variables, functions, and components.
+- Use reusable components.
+- Follow clean architecture principles.
+- Keep components modular (Single Responsibility Principle).
+- Avoid duplicated code (DRY principle).
+- Keep files strictly organized.
 
-- Never write code comments
-- Never add unnecessary explanations inside code
-- Write clean and readable code
-- Use reusable components
-- Follow clean architecture principles
-- Keep components modular
-- Avoid duplicated code
-- Use semantic naming
-- Keep files organized
+Code must feel production-ready and be 100% free of explanatory comments.
 
-Code must feel production-ready.
-
----
-
-# Preferred Tech Stack
-
-Frontend:
-
-- Next.js
-- TypeScript
-- Tailwind CSS
-- shadcn/ui
-
-Icons:
-
-- Lucide React
-
-Charts:
-
-- Recharts
-
-State management:
-
-- Zustand (if needed)
-
-Tables:
-
-- TanStack Table
-
-Forms:
-
-- React Hook Form
-
----
 
 # UI Priorities
 
 Prioritize these pages first:
-
 1. Dashboard
 2. AI Prediction
 3. Production Recommendation
@@ -240,7 +183,6 @@ Prioritize these pages first:
 # Dashboard Expectations
 
 Dashboard should contain:
-
 - Sales summary cards
 - Forecast cards
 - Prediction trend charts
@@ -257,19 +199,16 @@ Dashboard should feel intelligent and premium.
 # AI Feature Direction
 
 PredikAI should feel like:
-
 - Smart assistant
 - AI business consultant
 - Predictive analytics platform
 
 Avoid making it feel like:
-
 - Basic POS system
 - Generic cashier app
 - Traditional ERP
 
 AI insight cards should contain:
-
 - Why prediction changes
 - External factor explanations
 - Suggested action
@@ -281,7 +220,6 @@ AI insight cards should contain:
 # Cashier Role
 
 If cashier role is implemented:
-
 - Keep UI extremely simple
 - Focus only on transaction input
 - Fast interaction flow
@@ -293,13 +231,11 @@ If cashier role is implemented:
 # Writing Style
 
 Use:
-
 - Clear labels
 - Professional wording
 - Modern SaaS tone
 
 Avoid:
-
 - Overly formal wording
 - Robotic language
 - Complex terminology for small business owners
