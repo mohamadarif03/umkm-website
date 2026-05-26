@@ -1,24 +1,3 @@
-<p align="center">
-  <img src="public/logo.svg" width="80" alt="PredikAI Logo">
-</p>
-
-<h1 align="center">PredikAI — TehMbois</h1>
-
-<p align="center">
-  <strong>Platform AI Business Intelligence untuk UMKM Food & Beverage</strong>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white" alt="Laravel 13">
-  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" alt="React 19">
-  <img src="https://img.shields.io/badge/Inertia.js-3-7C3AED?logo=inertia&logoColor=white" alt="Inertia.js 3">
-  <img src="https://img.shields.io/badge/TailwindCSS-4-06B6D4?logo=tailwindcss&logoColor=white" alt="TailwindCSS 4">
-  <img src="https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white" alt="TypeScript 6">
-  <img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" alt="Vite 8">
-</p>
-
----
-
 ## 📖 Tentang PredikAI
 
 **PredikAI** adalah platform berbasis kecerdasan buatan yang dirancang khusus untuk membantu pemilik UMKM di sektor Food & Beverage (F&B) membuat keputusan produksi yang lebih cerdas. Dengan memanfaatkan data historis penjualan, prakiraan cuaca, kalender hari libur nasional, dan tren lokal, PredikAI mampu memprediksi perkiraan penjualan mingguan maupun bulanan beserta faktor-faktor yang mempengaruhinya.
@@ -56,7 +35,7 @@ Banyak owner UMKM F&B yang salah memprediksi kebutuhan produksi sehingga terjadi
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **PHP 8.3+**
@@ -83,7 +62,7 @@ Banyak owner UMKM F&B yang salah memprediksi kebutuhan produksi sehingga terjadi
 
 ---
 
-## 🚀 Instalasi & Setup
+## Instalasi & Setup
 
 ### Prasyarat
 
