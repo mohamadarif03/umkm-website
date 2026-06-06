@@ -57,12 +57,12 @@ export default function Reports() {
         >
             <Head title="Laporan & Evaluasi" />
 
-            <div className="flex justify-end mb-6">
+            {/* <div className="flex justify-end mb-6">
                 <Button className="gap-2 bg-[#096956] hover:bg-[#075344] text-white shadow-md">
                     <IconDownload size={18} />
                     Download Laporan PDF
                 </Button>
-            </div>
+            </div> */}
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                 <Card className="border-border/60 shadow-sm bg-gradient-to-br from-emerald-50/50 to-white">
