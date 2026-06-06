@@ -17,6 +17,7 @@ export default function TehMboisTopNav() {
     })();
     const isLanding = currentPath === "/";
     const [showFullNav, setShowFullNav] = useState(!isLanding);
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     useEffect(() => {
         if (!isLanding) {
@@ -46,6 +47,10 @@ export default function TehMboisTopNav() {
             window.removeEventListener("resize", updateNavMode);
         };
     }, [isLanding]);
+
+    useEffect(() => {
+        setIsMobileOpen(false);
+    }, [url]);
 
     return (
         <>
@@ -94,11 +99,20 @@ export default function TehMboisTopNav() {
                         ))}
                     </div>
                     
-                    <Link href="/dashboard">
+                    <Link href="/dashboard" className="hidden md:inline-flex">
                         <Button className="inline-flex rounded-full bg-[#096956] px-5 py-2.5 text-xs font-medium text-white transition-colors hover:bg-[#096956]/90 sm:px-6 sm:text-sm">
                             Masuk/Daftar
                         </Button>
                     </Link>
+
+                    <button
+                        type="button"
+                        onClick={() => setIsMobileOpen(true)}
+                        className="rounded-full p-1.5 transition-all hover:bg-[#096956]/5 md:hidden"
+                        aria-label="Buka navigasi"
+                    >
+                        <img src="/tea_icon.png" alt="" aria-hidden="true" className="h-9 w-9 object-contain" />
+                    </button>
 
                 </div>
             </nav>
@@ -141,20 +155,80 @@ export default function TehMboisTopNav() {
                     </div>
 
                     <div className="flex items-center gap-3">
-                        <Link href="/dashboard">
+                        <Link href="/dashboard" className="hidden md:inline-flex">
                             <Button className="inline-flex rounded-full bg-[#096956] px-5 py-2.5 text-xs font-medium text-white transition-colors hover:bg-[#096956]/90 sm:px-6 sm:text-sm">
                                 Masuk/Daftar
                             </Button>
                         </Link>
-                        {/* <button
-                            className="rounded-full p-2 text-[#181c1b] transition-all hover:bg-[#096956]/5 md:hidden"
-                            aria-label="Open menu"
+                        <button
+                            type="button"
+                            onClick={() => setIsMobileOpen(true)}
+                            className="rounded-full p-1.5 transition-all hover:bg-[#096956]/5 md:hidden"
+                            aria-label="Buka navigasi"
                         >
-                            <IconMenu2 size={22} stroke={1.9} />
-                        </button> */}
+                            <img src="/tea_icon.png" alt="" aria-hidden="true" className="h-9 w-9 object-contain" />
+                        </button>
                     </div>
                 </div>
             </nav>
+
+            <div
+                className={[
+                    "fixed inset-0 z-[60] bg-[#181c1b]/30 backdrop-blur-[2px] transition-opacity duration-300 md:hidden",
+                    isMobileOpen ? "opacity-100" : "pointer-events-none opacity-0",
+                ].join(" ")}
+                onClick={() => setIsMobileOpen(false)}
+                aria-hidden="true"
+            />
+
+            <aside
+                className={[
+                    "fixed right-0 top-0 z-[70] flex h-screen w-[66.666vw] max-w-[320px] flex-col border-l border-[#bec9c4]/40 bg-[#f7faf7] px-5 py-5 shadow-2xl transition-transform duration-300 ease-out md:hidden",
+                    isMobileOpen ? "translate-x-0" : "translate-x-full",
+                ].join(" ")}
+                aria-hidden={!isMobileOpen}
+            >
+                <div className="mb-8 flex items-center justify-between gap-4">
+                    <Link href="/" className="inline-flex items-center" onClick={() => setIsMobileOpen(false)}>
+                        <img src={TEH_MBOIS_IMAGES.logo} alt="TehMbois" className="h-10 w-auto object-contain" />
+                    </Link>
+
+                    <button
+                        type="button"
+                        onClick={() => setIsMobileOpen(false)}
+                        className="rounded-full border border-[#bec9c4]/40 px-3 py-1.5 text-sm font-semibold text-[#3f4945] transition-colors hover:bg-[#096956]/5 hover:text-[#096956]"
+                        aria-label="Tutup navigasi"
+                    >
+                        Tutup
+                    </button>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    {navLinks.map((item) => (
+                        <a
+                            key={item.label}
+                            href={item.href}
+                            onClick={() => setIsMobileOpen(false)}
+                            className={[
+                                "rounded-2xl px-4 py-3 text-base font-semibold transition-all",
+                                item.match(currentPath)
+                                    ? "bg-[#096956] text-white"
+                                    : "text-[#3f4945] hover:bg-[#096956]/5 hover:text-[#096956]",
+                            ].join(" ")}
+                        >
+                            {item.label}
+                        </a>
+                    ))}
+                </div>
+
+                <div className="mt-auto pt-8">
+                    <Link href="/dashboard" onClick={() => setIsMobileOpen(false)}>
+                        <Button className="inline-flex w-full rounded-2xl bg-[#096956] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#096956]/90">
+                            Masuk/Daftar
+                        </Button>
+                    </Link>
+                </div>
+            </aside>
         </>
     );
 }
