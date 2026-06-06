@@ -1,4 +1,4 @@
-import { IconArrowNarrowRight, IconClockHour4, IconMapPin } from "@tabler/icons-react";
+import { IconArrowNarrowRight, IconClockHour4, IconMapPin, IconPhone, IconBrandWhatsapp } from "@tabler/icons-react";
 
 const MAPS_EMBED_URL =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.449054106856!2d112.61109671050306!3d-7.952459679200308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827f2d620975%3A0xf19b7459bbee5ed5!2sUniversitas%20Brawijaya!5e0!3m2!1sid!2sid!4v1779203669083!5m2!1sid!2sid";
@@ -66,6 +66,25 @@ export default function OutletVisitSection() {
                                     <h4 className="text-sm font-bold">Jam Operasional</h4>
                                 </div>
                                 <p className="text-sm text-[#181c1b]">10.00 - 22.00 WIB</p>
+                            </div>
+
+                            <div className="rounded-2xl border border-[#bec9c4]/40 bg-white p-6 sm:col-span-2">
+                                <div className="mb-3 flex items-center gap-3 text-[#096956]">
+                                    <IconPhone size={18} />
+                                    <h4 className="text-sm font-bold">Kontak</h4>
+                                </div>
+                                <div className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
+                                    <p className="text-sm text-[#181c1b]">Hubungi kami via WhatsApp untuk informasi lebih lanjut.</p>
+                                    <a
+                                        href="https://wa.me/6285889561705"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:scale-105 hover:bg-[#20bd5a]"
+                                    >
+                                        <IconBrandWhatsapp size={18} />
+                                        0858-8956-1705
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
